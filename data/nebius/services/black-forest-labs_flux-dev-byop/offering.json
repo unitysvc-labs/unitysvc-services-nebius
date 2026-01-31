@@ -8,7 +8,7 @@
   "display_name": "Black Forest Labs/Flux Dev",
   "name": "black-forest-labs/flux-dev",
   "schema": "offering_v1",
-  "service_type": "image_generation",
+  "service_type": "llm",
   "status": "ready",
   "tags": [
     "byop"
