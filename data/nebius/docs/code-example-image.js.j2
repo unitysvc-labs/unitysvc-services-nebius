@@ -1,4 +1,4 @@
-const API_KEY = process.env.API_KEY;
+const UNITYSVC_API_KEY = process.env.UNITYSVC_API_KEY;
 const ENDPOINT = "https://api.studio.nebius.ai/v1/images/generations";
 import fs from "fs";
 
@@ -6,7 +6,7 @@ async function main() {
   const response = await fetch(ENDPOINT, {
     method: "POST",
     headers: {
-      "Authorization": `Bearer ${API_KEY}`,
+      "Authorization": `Bearer ${UNITYSVC_API_KEY}`,
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
