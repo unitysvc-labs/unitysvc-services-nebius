@@ -47,3 +47,4 @@ failed_*.env
 .secrets
 *.pem
 *.key
+*override.json
