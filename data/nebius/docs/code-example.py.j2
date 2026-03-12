@@ -6,7 +6,7 @@ UNITYSVC_API_KEY = os.environ.get("UNITYSVC_API_KEY")
 url = "https://api.studio.nebius.ai/v1/chat/completions"
 
 payload = {
-    "model": "{{offering.name}}",
+    "model": os.environ.get("MODEL", "{{offering.name}}"),
     "messages": [
         {"role": "user", "content": "Say this is a test"}
     ]
