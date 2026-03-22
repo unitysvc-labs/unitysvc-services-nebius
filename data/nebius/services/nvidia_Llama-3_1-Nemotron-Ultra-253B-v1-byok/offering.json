@@ -1,0 +1,33 @@
+{
+  "capabilities": [
+    "llm"
+  ],
+  "currency": "USD",
+  "description": "Nvidia/Llama 3 1 Nemotron Ultra 253B V1 language model",
+  "details": {
+    "object": "model",
+    "owned_by": "system"
+  },
+  "display_name": "Nvidia/Llama 3 1 Nemotron Ultra 253B V1",
+  "name": "nvidia/Llama-3_1-Nemotron-Ultra-253B-v1",
+  "schema": "offering_v1",
+  "service_type": "llm",
+  "status": "ready",
+  "tags": [
+    "ai",
+    "gateway",
+    "byok"
+  ],
+  "time_created": "2026-03-22T22:44:51.207688Z",
+  "upstream_access_config": {
+    "Nebius API": {
+      "access_method": "http",
+      "api_key": "${ customer_secrets.NEBIUS_API_KEY }",
+      "base_url": "https://api.studio.nebius.com/v1/",
+      "rate_limits": [],
+      "routing_key": {
+        "model": "nvidia/Llama-3_1-Nemotron-Ultra-253B-v1"
+      }
+    }
+  }
+}

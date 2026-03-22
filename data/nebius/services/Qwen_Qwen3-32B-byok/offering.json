@@ -1,0 +1,46 @@
+{
+  "capabilities": [
+    "llm"
+  ],
+  "currency": "USD",
+  "description": "Qwen/Qwen3 32B language model",
+  "details": {
+    "contextLength": 40960,
+    "litellm_provider": "deepinfra",
+    "max_input_tokens": 40960,
+    "max_output_tokens": 40960,
+    "max_tokens": 40960,
+    "mode": "chat",
+    "object": "model",
+    "owned_by": "system"
+  },
+  "display_name": "Qwen/Qwen3 32B",
+  "name": "Qwen/Qwen3-32B",
+  "payout_price": {
+    "description": "Pricing Per 1M Tokens Input/Output",
+    "input": "0.09999999999999999",
+    "output": "0.28",
+    "reference": null,
+    "type": "one_million_tokens"
+  },
+  "schema": "offering_v1",
+  "service_type": "llm",
+  "status": "ready",
+  "tags": [
+    "ai",
+    "gateway",
+    "byok"
+  ],
+  "time_created": "2026-03-22T22:44:51.246130Z",
+  "upstream_access_config": {
+    "Nebius API": {
+      "access_method": "http",
+      "api_key": "${ customer_secrets.NEBIUS_API_KEY }",
+      "base_url": "https://api.studio.nebius.com/v1/",
+      "rate_limits": [],
+      "routing_key": {
+        "model": "Qwen/Qwen3-32B"
+      }
+    }
+  }
+}
