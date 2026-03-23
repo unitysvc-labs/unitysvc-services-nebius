@@ -12,7 +12,7 @@
   "name": "moonshotai/Kimi-K2.5-fast",
   "schema": "offering_v1",
   "service_type": "llm",
-  "status": "ready",
+  "status": "deprecated",
   "tags": [
     "ai",
     "gateway",
