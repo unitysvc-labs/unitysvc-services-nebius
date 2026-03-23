@@ -7,13 +7,12 @@ Yields model dictionaries that are rendered using Jinja2 templates.
 Usage: python scripts/update_services.py
 """
 
-import json
 import os
 import sys
 from pathlib import Path
 from typing import Iterator
 
-import any_llm
+import httpx
 
 from unitysvc_services import ModelDataFetcher, ModelDataLookup, populate_from_iterator
 
@@ -41,15 +40,20 @@ class ModelSource:
 
         print(f"Fetching models from {PROVIDER_DISPLAY_NAME} API...")
         try:
-            models = any_llm.list_models(PROVIDER_NAME, api_key=self.api_key)
+            r = httpx.get(
+                f"{API_BASE_URL}models",
+                headers={"Authorization": f"Bearer {self.api_key}"},
+                timeout=30.0,
+            )
+            r.raise_for_status()
+            models = r.json().get("data", [])
             print(f"Found {len(models)} models\n")
         except Exception as e:
             print(f"Error listing models: {e}")
             return
 
-        for i, model in enumerate(models, 1):
-            model_info = json.loads(model.to_json())
-            model_id = model_info.get("id", str(model))
+        for i, model_info in enumerate(models, 1):
+            model_id = model_info.get("id", "")
             print(f"[{i}/{len(models)}] {model_id}")
 
             # Build template variables
