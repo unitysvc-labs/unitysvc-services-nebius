@@ -12,7 +12,7 @@
   "name": "black-forest-labs/flux-dev",
   "schema": "offering_v1",
   "service_type": "llm",
-  "status": "ready",
+  "status": "deprecated",
   "tags": [
     "ai",
     "gateway",
