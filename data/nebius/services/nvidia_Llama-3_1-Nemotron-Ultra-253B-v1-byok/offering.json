@@ -12,7 +12,7 @@
   "name": "nvidia/Llama-3_1-Nemotron-Ultra-253B-v1",
   "schema": "offering_v1",
   "service_type": "llm",
-  "status": "ready",
+  "status": "deprecated",
   "tags": [
     "ai",
     "gateway",

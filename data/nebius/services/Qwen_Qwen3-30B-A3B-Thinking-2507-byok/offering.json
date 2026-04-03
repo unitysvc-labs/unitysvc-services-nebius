@@ -12,7 +12,7 @@
   "name": "Qwen/Qwen3-30B-A3B-Thinking-2507",
   "schema": "offering_v1",
   "service_type": "llm",
-  "status": "ready",
+  "status": "deprecated",
   "tags": [
     "ai",
     "gateway",
