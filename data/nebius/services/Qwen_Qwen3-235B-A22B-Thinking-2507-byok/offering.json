@@ -33,7 +33,7 @@
   ],
   "time_created": "2026-03-22T22:44:51.244563Z",
   "upstream_access_config": {
-    "Nebius API": {
+    "nebius_api": {
       "access_method": "http",
       "api_key": "${ customer_secrets.NEBIUS_API_KEY }",
       "base_url": "https://api.studio.nebius.com/v1/",
