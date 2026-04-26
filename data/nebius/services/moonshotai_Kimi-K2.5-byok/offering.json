@@ -5,11 +5,7 @@
   "currency": "USD",
   "description": "Moonshotai/Kimi K2.5 language model",
   "details": {
-    "contextLength": 256000,
-    "litellm_provider": "together_ai",
-    "max_input_tokens": 256000,
-    "max_output_tokens": 256000,
-    "max_tokens": 256000,
+    "litellm_provider": "baseten",
     "mode": "chat",
     "object": "model",
     "owned_by": "system"
@@ -18,14 +14,14 @@
   "name": "moonshotai/Kimi-K2.5",
   "payout_price": {
     "description": "Pricing Per 1M Tokens Input/Output",
-    "input": "0.5",
-    "output": "2.8",
+    "input": "0.6",
+    "output": "3",
     "reference": null,
     "type": "one_million_tokens"
   },
   "schema": "offering_v1",
   "service_type": "llm",
-  "status": "deprecated",
+  "status": "ready",
   "tags": [
     "ai",
     "gateway",
@@ -33,7 +29,7 @@
   ],
   "time_created": "2026-03-22T22:44:51.309803Z",
   "upstream_access_config": {
-    "nebius_api": {
+    "Nebius API": {
       "access_method": "http",
       "api_key": "${ customer_secrets.NEBIUS_API_KEY }",
       "base_url": "https://api.studio.nebius.com/v1/",

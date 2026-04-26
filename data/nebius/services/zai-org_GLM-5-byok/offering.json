@@ -5,14 +5,23 @@
   "currency": "USD",
   "description": "Zai Org/Glm 5 language model",
   "details": {
+    "litellm_provider": "baseten",
+    "mode": "chat",
     "object": "model",
     "owned_by": "system"
   },
   "display_name": "Zai Org/Glm 5",
   "name": "zai-org/GLM-5",
+  "payout_price": {
+    "description": "Pricing Per 1M Tokens Input/Output",
+    "input": "0.95",
+    "output": "3.15",
+    "reference": null,
+    "type": "one_million_tokens"
+  },
   "schema": "offering_v1",
   "service_type": "llm",
-  "status": "deprecated",
+  "status": "ready",
   "tags": [
     "ai",
     "gateway",
@@ -20,7 +29,7 @@
   ],
   "time_created": "2026-03-22T22:44:51.306991Z",
   "upstream_access_config": {
-    "nebius_api": {
+    "Nebius API": {
       "access_method": "http",
       "api_key": "${ customer_secrets.NEBIUS_API_KEY }",
       "base_url": "https://api.studio.nebius.com/v1/",

@@ -57,22 +57,15 @@
       "mime_type": "bash"
     }
   },
-  "list_price": {
-    "description": "Pricing Per 1M Tokens Input/Output",
-    "input": "0.04",
-    "output": "0.15",
-    "reference": null,
-    "type": "one_million_tokens"
-  },
   "schema": "listing_v1",
   "status": "ready",
-  "time_created": "2026-03-22T22:44:51.266724Z",
+  "time_created": "2026-04-26T03:53:00.543161Z",
   "user_access_interfaces": {
     "provider_api": {
       "access_method": "http",
       "base_url": "${API_GATEWAY_BASE_URL}/p/nebius",
       "routing_key": {
-        "model": "openai/gpt-oss-20b"
+        "model": "MiniMaxAI/MiniMax-M2.5-fast"
       }
     }
   }

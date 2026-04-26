@@ -12,7 +12,7 @@
   "name": "moonshotai/Kimi-K2.5-fast",
   "schema": "offering_v1",
   "service_type": "llm",
-  "status": "deprecated",
+  "status": "ready",
   "tags": [
     "ai",
     "gateway",
@@ -20,7 +20,7 @@
   ],
   "time_created": "2026-03-22T22:44:51.293333Z",
   "upstream_access_config": {
-    "nebius_api": {
+    "Nebius API": {
       "access_method": "http",
       "api_key": "${ customer_secrets.NEBIUS_API_KEY }",
       "base_url": "https://api.studio.nebius.com/v1/",
