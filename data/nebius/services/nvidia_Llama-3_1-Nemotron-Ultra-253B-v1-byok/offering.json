@@ -5,9 +5,9 @@
   "currency": "USD",
   "description": "Nvidia/Llama 3 1 Nemotron Ultra 253B V1 language model",
   "details": {
+    "context_length": null,
     "object": "model",
     "owned_by": "system",
-    "context_length": null,
     "parameter_count": null
   },
   "display_name": "Nvidia/Llama 3 1 Nemotron Ultra 253B V1",

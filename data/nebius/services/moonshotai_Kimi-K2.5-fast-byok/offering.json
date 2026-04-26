@@ -5,12 +5,12 @@
   "currency": "USD",
   "description": "Moonshotai/Kimi K2.5 Fast language model",
   "details": {
-    "object": "model",
-    "owned_by": "system",
+    "context_length": 262144,
     "metadata_sources": {
       "context_length": "openrouter"
     },
-    "context_length": 262144,
+    "object": "model",
+    "owned_by": "system",
     "parameter_count": null
   },
   "display_name": "Moonshotai/Kimi K2.5 Fast",

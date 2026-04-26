@@ -5,12 +5,12 @@
   "currency": "USD",
   "description": "Qwen/Qwen3 30B A3B Instruct 2507 language model",
   "details": {
-    "object": "model",
-    "owned_by": "system",
+    "context_length": 262144,
     "metadata_sources": {
       "context_length": "openrouter"
     },
-    "context_length": 262144,
+    "object": "model",
+    "owned_by": "system",
     "parameter_count": null
   },
   "display_name": "Qwen/Qwen3 30B A3B Instruct 2507",

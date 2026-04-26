@@ -122,7 +122,7 @@ def main() -> None:
             after = json.dumps(details, sort_keys=True)
             if before != after:
                 with path.open("w") as f:
-                    json.dump(offering, f, indent=2, ensure_ascii=False)
+                    json.dump(offering, f, indent=2, ensure_ascii=False, sort_keys=True)
                     f.write("\n")
                 changed += 1
                 print(

@@ -5,15 +5,15 @@
   "currency": "USD",
   "description": "Qwen/Qwen3.5 397B A17B language model",
   "details": {
+    "context_length": 262144,
     "litellm_provider": "together_ai",
     "max_input_tokens": 262144,
-    "mode": "chat",
-    "object": "model",
-    "owned_by": "system",
-    "context_length": 262144,
     "metadata_sources": {
       "parameter_count": "huggingface_safetensors"
     },
+    "mode": "chat",
+    "object": "model",
+    "owned_by": "system",
     "parameter_count": 403397920304
   },
   "display_name": "Qwen/Qwen3.5 397B A17B",

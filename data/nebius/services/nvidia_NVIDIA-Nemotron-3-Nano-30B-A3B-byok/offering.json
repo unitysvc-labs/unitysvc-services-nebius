@@ -5,9 +5,9 @@
   "currency": "USD",
   "description": "Nvidia/Nvidia Nemotron 3 Nano 30B A3B language model",
   "details": {
+    "context_length": null,
     "object": "model",
     "owned_by": "system",
-    "context_length": null,
     "parameter_count": null
   },
   "display_name": "Nvidia/Nvidia Nemotron 3 Nano 30B A3B",

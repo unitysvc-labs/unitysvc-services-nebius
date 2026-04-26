@@ -5,13 +5,13 @@
   "currency": "USD",
   "description": "Nousresearch/Hermes 4 405B language model",
   "details": {
-    "object": "model",
-    "owned_by": "system",
+    "context_length": 131072,
     "metadata_sources": {
       "context_length": "openrouter",
       "parameter_count": "huggingface_safetensors"
     },
-    "context_length": 131072,
+    "object": "model",
+    "owned_by": "system",
     "parameter_count": 405853388800
   },
   "display_name": "Nousresearch/Hermes 4 405B",

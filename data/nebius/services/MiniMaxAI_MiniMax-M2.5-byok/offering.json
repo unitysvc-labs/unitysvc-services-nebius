@@ -5,14 +5,14 @@
   "currency": "USD",
   "description": "Minimaxai/Minimax M2.5 language model",
   "details": {
+    "context_length": null,
     "litellm_provider": "baseten",
-    "mode": "chat",
-    "object": "model",
-    "owned_by": "system",
     "metadata_sources": {
       "parameter_count": "huggingface_safetensors"
     },
-    "context_length": null,
+    "mode": "chat",
+    "object": "model",
+    "owned_by": "system",
     "parameter_count": 227410968576
   },
   "display_name": "Minimaxai/Minimax M2.5",

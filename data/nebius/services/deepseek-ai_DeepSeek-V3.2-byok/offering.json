@@ -5,17 +5,17 @@
   "currency": "USD",
   "description": "Deepseek Ai/Deepseek V3.2 language model",
   "details": {
+    "context_length": 163840,
     "litellm_provider": "gmi",
     "max_input_tokens": 163840,
     "max_output_tokens": 16384,
     "max_tokens": 16384,
-    "mode": "chat",
-    "object": "model",
-    "owned_by": "system",
-    "context_length": 163840,
     "metadata_sources": {
       "parameter_count": "huggingface_safetensors"
     },
+    "mode": "chat",
+    "object": "model",
+    "owned_by": "system",
     "parameter_count": 681408069632
   },
   "display_name": "Deepseek Ai/Deepseek V3.2",

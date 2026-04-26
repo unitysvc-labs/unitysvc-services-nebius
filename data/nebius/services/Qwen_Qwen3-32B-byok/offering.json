@@ -5,6 +5,7 @@
   "currency": "USD",
   "description": "Qwen/Qwen3 32B language model",
   "details": {
+    "context_length": 40960,
     "litellm_provider": "deepinfra",
     "max_input_tokens": 40960,
     "max_output_tokens": 40960,
@@ -12,7 +13,6 @@
     "mode": "chat",
     "object": "model",
     "owned_by": "system",
-    "context_length": 40960,
     "parameter_count": null
   },
   "display_name": "Qwen/Qwen3 32B",
