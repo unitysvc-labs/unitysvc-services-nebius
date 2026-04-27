@@ -14,7 +14,7 @@
   "name": "PrimeIntellect/INTELLECT-3",
   "schema": "offering_v1",
   "service_type": "llm",
-  "status": "ready",
+  "status": "deprecated",
   "tags": [
     "ai",
     "gateway",

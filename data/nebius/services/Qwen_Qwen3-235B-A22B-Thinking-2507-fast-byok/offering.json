@@ -17,7 +17,7 @@
   "name": "Qwen/Qwen3-235B-A22B-Thinking-2507-fast",
   "schema": "offering_v1",
   "service_type": "llm",
-  "status": "ready",
+  "status": "deprecated",
   "tags": [
     "ai",
     "gateway",
