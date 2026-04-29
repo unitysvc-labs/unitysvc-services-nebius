@@ -11,6 +11,7 @@
     "max_output_tokens": 16384,
     "max_tokens": 16384,
     "metadata_sources": {
+      "context_length": "litellm",
       "parameter_count": "huggingface_safetensors"
     },
     "mode": "chat",

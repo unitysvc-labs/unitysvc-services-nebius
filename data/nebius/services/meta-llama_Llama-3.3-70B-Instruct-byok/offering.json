@@ -5,12 +5,13 @@
   "currency": "USD",
   "description": "Meta Llama/Llama 3.3 70B Instruct language model",
   "details": {
-    "context_length": 131072,
+    "context_length": 65536,
     "litellm_provider": "deepinfra",
     "max_input_tokens": 131072,
     "max_output_tokens": 131072,
     "max_tokens": 131072,
     "metadata_sources": {
+      "context_length": "openrouter",
       "parameter_count": "huggingface_safetensors"
     },
     "mode": "chat",
