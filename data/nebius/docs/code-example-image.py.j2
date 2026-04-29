@@ -7,7 +7,7 @@ UNITYSVC_API_KEY = os.environ.get("UNITYSVC_API_KEY")
 url = "https://api.studio.nebius.ai/v1/images/generations"
 
 payload = {
-    "model": os.environ.get("MODEL", "{{offering.name}}"),
+    "model": "{{ routing_key.model }}",
     "prompt": "a futuristic city at sunrise, ultra detailed",
     "size": "1024x1024"
 }

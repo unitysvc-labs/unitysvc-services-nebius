@@ -3,4 +3,4 @@ curl 'https://api.tokenfactory.nebius.com/v1/embeddings' \
     -H 'Content-Type: application/json' \
     -H 'Accept: */*' \
     -H "Authorization: Bearer $UNITYSVC_API_KEY" \
-    --data-binary '{"model":"${MODEL:-{{offering.name}}}","input":"saturday"}'
+    --data-binary '{"model":"{{ routing_key.model }}}}","input":"saturday"}'

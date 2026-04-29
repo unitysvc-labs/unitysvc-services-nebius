@@ -2,7 +2,7 @@ curl --location "https://api.studio.nebius.ai/v1/images/generations" \
   -H "Authorization: Bearer $UNITYSVC_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "${MODEL:-{{offering.name}}}",
+    "model": "{{ routing_key.model }}}}",
     "prompt": "a futuristic city at sunrise, ultra detailed",
     "size": "1024x1024"
   }'

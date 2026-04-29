@@ -32,7 +32,7 @@ tools = [
 ]
 
 payload = {
-    "model": os.environ.get("MODEL", "{{offering.name}}"),
+    "model": "{{ routing_key.model }}",
     "messages": [
         {"role": "user", "content": "What's the weather like in Houston?"}
     ],

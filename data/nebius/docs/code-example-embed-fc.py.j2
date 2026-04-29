@@ -3,7 +3,7 @@ import requests
 
 UNITYSVC_API_KEY = os.environ.get("UNITYSVC_API_KEY")
 
-def generate_embedding(text, model=os.environ.get("MODEL", "{{offering.name}}")):
+def generate_embedding(text, model="{{ routing_key.model }}"):
     url = "https://api.tokenfactory.nebius.com/v1/embeddings"
 
     payload = {
