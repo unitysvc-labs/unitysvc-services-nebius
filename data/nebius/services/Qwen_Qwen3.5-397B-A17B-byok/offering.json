@@ -9,6 +9,7 @@
     "litellm_provider": "together_ai",
     "max_input_tokens": 262144,
     "metadata_sources": {
+      "context_length": "openrouter",
       "parameter_count": "huggingface_safetensors"
     },
     "mode": "chat",

@@ -5,12 +5,13 @@
   "currency": "USD",
   "description": "Qwen/Qwen2.5 Vl 72B Instruct language model",
   "details": {
-    "context_length": 131072,
+    "context_length": 32000,
     "litellm_provider": "nebius",
     "max_input_tokens": 131072,
     "max_output_tokens": 131072,
     "max_tokens": 131072,
     "metadata_sources": {
+      "context_length": "openrouter",
       "parameter_count": "huggingface_safetensors"
     },
     "mode": "chat",

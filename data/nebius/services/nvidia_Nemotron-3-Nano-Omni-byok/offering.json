@@ -1,29 +1,29 @@
 {
   "capabilities": [
-    "embedding"
+    "llm"
   ],
   "currency": "USD",
-  "description": "Qwen/Qwen3 Embedding 8B language model",
+  "description": "Nvidia/Nemotron 3 Nano Omni language model",
   "details": {
-    "context_length": null,
+    "context_length": 256000,
     "metadata_sources": {
-      "parameter_count": "huggingface_safetensors"
+      "context_length": "openrouter"
     },
     "object": "model",
     "owned_by": "system",
-    "parameter_count": 7567295488
+    "parameter_count": null
   },
-  "display_name": "Qwen/Qwen3 Embedding 8B",
-  "name": "Qwen/Qwen3-Embedding-8B",
+  "display_name": "Nvidia/Nemotron 3 Nano Omni",
+  "name": "nvidia/Nemotron-3-Nano-Omni",
   "schema": "offering_v1",
-  "service_type": "embedding",
+  "service_type": "llm",
   "status": "ready",
   "tags": [
     "ai",
     "gateway",
     "byok"
   ],
-  "time_created": "2026-03-22T22:44:51.259667Z",
+  "time_created": "2026-04-29T04:24:04.058775Z",
   "upstream_access_config": {
     "Nebius API": {
       "access_method": "http",
@@ -31,7 +31,7 @@
       "base_url": "https://api.studio.nebius.com/v1/",
       "rate_limits": [],
       "routing_key": {
-        "model": "Qwen/Qwen3-Embedding-8B"
+        "model": "nvidia/Nemotron-3-Nano-Omni"
       }
     }
   }
