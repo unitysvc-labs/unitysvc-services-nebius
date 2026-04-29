@@ -4,7 +4,7 @@ import base64
 
 UNITYSVC_API_KEY = os.environ.get("UNITYSVC_API_KEY")
 
-url = "https://api.studio.nebius.ai/v1/images/generations"
+url = os.environ.get("SERVICE_BASE_URL", "") + "/images/generations"
 
 payload = {
     "model": "{{ routing_key.model }}",

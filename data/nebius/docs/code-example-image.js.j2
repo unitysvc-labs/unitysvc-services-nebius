@@ -1,5 +1,5 @@
 const UNITYSVC_API_KEY = process.env.UNITYSVC_API_KEY;
-const ENDPOINT = "https://api.studio.nebius.ai/v1/images/generations";
+const ENDPOINT = process.env.SERVICE_BASE_URL + "/images/generations";
 import fs from "fs";
 
 async function main() {

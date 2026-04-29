@@ -4,7 +4,7 @@ import json
 
 UNITYSVC_API_KEY = os.environ.get("UNITYSVC_API_KEY")
 
-url = "https://api.tokenfactory.nebius.com/v1/embeddings"
+url = os.environ.get("SERVICE_BASE_URL", "") + "/embeddings"
 
 payload = {
     "model": "{{ routing_key.model }}",

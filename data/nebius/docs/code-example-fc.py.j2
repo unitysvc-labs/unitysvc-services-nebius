@@ -3,7 +3,7 @@ import os
 
 UNITYSVC_API_KEY = os.environ.get("UNITYSVC_API_KEY")
 
-url = "https://api.studio.nebius.ai/v1/chat/completions"
+url = os.environ.get("SERVICE_BASE_URL", "") + "/chat/completions"
 
 headers = {
     "Authorization": f"Bearer {UNITYSVC_API_KEY}",
