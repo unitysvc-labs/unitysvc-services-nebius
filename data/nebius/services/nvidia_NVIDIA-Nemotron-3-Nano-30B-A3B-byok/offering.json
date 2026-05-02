@@ -14,7 +14,7 @@
   "name": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
   "schema": "offering_v1",
   "service_type": "llm",
-  "status": "ready",
+  "status": "deprecated",
   "tags": [
     "ai",
     "gateway",
