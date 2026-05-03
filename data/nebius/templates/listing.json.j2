@@ -15,13 +15,58 @@
   "documents": {
     "How to use this model": {
       "$doc_preset": "llm_description"
-    },
+    }
+{#- Per-service-type dispatch.  The chat-completion presets (llm_*) only
+    apply to text LLMs; embeddings POST to /embeddings.  Vision-capable
+    LLMs (``is_vision``) stay on the chat-completion shape but get
+    image-aware code examples so the probe payload includes an image
+    content block.  Sending the wrong-shape probe upstream returns 4xx
+    and rejects the service. -#}
+{%- if service_type == "embedding" %},
     "Python code example": {
-      "$doc_preset": "llm_code_example_openai"
+      "$doc_preset": "llm_code_example_embed_requests"
     },
+    "JavaScript code example": {
+      "$doc_preset": "llm_code_example_embed_javascript"
+    },
+    "cURL code example": {
+      "$doc_preset": "llm_code_example_embed_shell"
+    },
+    "Connectivity test": {
+      "$doc_preset": "llm_connectivity_embed"
+    }
+{#- No request-template preset for embeddings yet — the embed cURL
+    example already shows the canonical request body. -#}
+{%- elif is_vision %},
+    "Python code example": {
+      "$doc_preset": "llm_code_example_vision_requests"
+    },
+{%- if supports_function_calling %}
     "Python function calling code example": {
       "$doc_preset": "llm_code_example_fc_requests"
     },
+{%- endif %}
+    "JavaScript code example": {
+      "$doc_preset": "llm_code_example_vision_javascript"
+    },
+    "cURL code example": {
+      "$doc_preset": "llm_code_example_vision_shell"
+    },
+    "Connectivity test": {
+      "$doc_preset": "llm_connectivity"
+    },
+    "Default request body": {
+      "$doc_preset": "llm_request_template"
+    }
+{%- else %},
+    "Python code example": {
+      "$doc_preset": "llm_code_example_openai"
+    },
+{%- if supports_function_calling %}
+    "Python function calling code example": {
+      "$doc_preset": "llm_code_example_fc_requests"
+    },
+{%- endif %}
     "JavaScript code example": {
       "$doc_preset": "llm_code_example_javascript"
     },
@@ -34,5 +79,6 @@
     "Default request body": {
       "$doc_preset": "llm_request_template"
     }
+{%- endif %}
   }
 }

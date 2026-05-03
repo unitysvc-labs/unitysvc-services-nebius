@@ -3,7 +3,7 @@
     "embedding"
   ],
   "currency": "USD",
-  "description": "Qwen/Qwen3 Embedding 8B language model",
+  "description": "Qwen/Qwen3 Embedding 8B embedding model",
   "details": {
     "context_length": null,
     "metadata_sources": {

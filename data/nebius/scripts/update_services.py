@@ -8,6 +8,7 @@ Usage: python scripts/update_services.py
 """
 
 import os
+import re
 import sys
 from pathlib import Path
 from typing import Iterator
@@ -66,6 +67,8 @@ class ModelSource:
     def _build_template_vars(self, model_id: str, model_info: dict) -> dict:
         """Build template variables for a model."""
         service_type = self._determine_service_type(model_id)
+        capabilities = self._determine_capabilities(service_type, model_id)
+        is_vision = "vision" in capabilities
         display_name = model_id.replace("-", " ").replace("_", " ").title()
 
         # Build details from LiteLLM data and model info
@@ -82,6 +85,15 @@ class ModelSource:
                     details[field] = model_data[field]
             if "litellm_provider" in model_data:
                 details["litellm_provider"] = model_data["litellm_provider"]
+
+        # Tool-call support per model.  Nebius's /v1/models doesn't expose
+        # this, so we trust LiteLLM's model registry.  Default False — better
+        # to omit the function-calling code example than to ship one that
+        # 400s upstream (e.g. gemma-2 was released without tool-use
+        # training).
+        supports_function_calling = bool(
+            (model_data or {}).get("supports_function_calling")
+        )
 
         if "owned_by" in model_info:
             details["owned_by"] = model_info["owned_by"]
@@ -118,6 +130,19 @@ class ModelSource:
                     "reference": None,
                 }
 
+        # Description suffix tracks the offering's actual nature so
+        # embeddings / VL / rerank don't all get described as "language
+        # model".  VL is a sub-flavour of llm (capabilities tags it), so
+        # check the vision capability before falling back to service_type.
+        if is_vision:
+            description_suffix = "vision-language model"
+        else:
+            description_suffix = {
+                "llm": "language model",
+                "embedding": "embedding model",
+                "rerank": "reranker",
+            }.get(service_type, "model")
+
         return {
             # Directory name uses -byok suffix (used by populate_from_iterator)
             "name": f"{model_id}-byok",
@@ -125,13 +150,16 @@ class ModelSource:
             "offering_name": model_id,
             # Offering fields
             "display_name": display_name,
-            "description": f"{display_name} language model",
+            "description": f"{display_name} {description_suffix}",
             "service_type": service_type,
+            "capabilities": capabilities,
+            "is_vision": is_vision,
             "status": "ready",
             "details": details,
             "payout_price": pricing,
             # Listing fields
             "list_price": pricing,
+            "supports_function_calling": supports_function_calling,
             # Provider config (for templates)
             "provider_name": PROVIDER_NAME,
             "provider_display_name": PROVIDER_DISPLAY_NAME,
@@ -139,15 +167,55 @@ class ModelSource:
             "env_api_key_name": ENV_API_KEY_NAME,
         }
 
+    # Vision-language model detection.  Most VL releases use the compact
+    # ``VL`` suffix (``Qwen2.5-VL-72B``, ``InternVL``) or family names
+    # like LLaVA / VLM that don't contain the word "vision" at all.  The
+    # regex uses segment boundaries (``-`` / ``_`` / ``/`` / start / end)
+    # so we don't false-positive on names that happen to contain "vl" as
+    # a substring (e.g. "evaluator").  ``v\d+`` is intentionally NOT in
+    # the alternation — it would catch version suffixes like
+    # ``-v1`` / ``-v2`` and misclassify regular LLMs (e.g.
+    # ``nvidia/Llama-3_1-Nemotron-Ultra-253B-v1``).  Single-letter ``V``
+    # markers (GLM-4V) aren't covered yet — add an explicit per-model
+    # entry if such a model lands in Nebius's catalog.
+    _VL_PATTERN = re.compile(
+        r"(?:^|[-_/])(?:vision|llava|vlm|vl)(?:[-_/]|\d+|$)",
+        re.IGNORECASE,
+    )
+
     def _determine_service_type(self, model_id: str) -> str:
+        """Map model id to a platform-recognised ``service_type``.
+
+        The schema enum tracks *transport shape* (chat-completion vs
+        embeddings vs rerank vs image-gen vs …), not per-feature flags.
+        Vision-language models POST to the same ``/chat/completions``
+        surface as text LLMs, so they stay ``llm`` here and pick up a
+        ``"vision"`` tag in :meth:`_determine_capabilities` instead.
+        """
         model_lower = model_id.lower()
-        if any(kw in model_lower for kw in ["embed", "embedding"]):
+        # Embeddings first — some embedding models also use "instruct" in
+        # their name (e.g. Qwen3-Embedding-8B-Instruct), so the embedding
+        # check has to win against any future LLM-leaning heuristic.
+        if any(kw in model_lower for kw in ("embed", "embedding")):
             return "embedding"
-        if any(kw in model_lower for kw in ["rerank"]):
+        if "rerank" in model_lower:
             return "rerank"
-        if any(kw in model_lower for kw in ["vision"]):
-            return "vision_language_model"
         return "llm"
+
+    def _determine_capabilities(self, service_type: str, model_id: str) -> list[str]:
+        """Per-feature tags that ride alongside ``service_type``.
+
+        The platform's capability taxonomy is open; we mirror what other
+        provider repos emit so dashboards / search can group by feature.
+        Vision detection reuses the same segment-aware regex as the old
+        VL-as-service-type path — it catches ``Qwen2.5-VL`` /
+        ``InternVL`` / ``LLaVA`` / explicit ``vision`` / ``vlm`` markers
+        without false-positiving on ``-v1`` version suffixes.
+        """
+        caps: list[str] = [service_type]
+        if service_type == "llm" and self._VL_PATTERN.search(model_id):
+            caps.append("vision")
+        return caps
 
     def _format_price(self, price: float) -> str:
         """Format price without trailing .0 for whole numbers."""

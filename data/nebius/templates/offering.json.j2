@@ -4,7 +4,7 @@
   "display_name": "{{ display_name }}",
   "description": {{ description | tojson }},
   "service_type": "{{ service_type }}",
-  "capabilities": ["{{ service_type }}"],
+  "capabilities": {{ capabilities | default([service_type]) | tojson }},
   "status": "{{ status | default('ready') }}",
   "currency": "USD",
   "tags": ["ai", "gateway", "byok"],

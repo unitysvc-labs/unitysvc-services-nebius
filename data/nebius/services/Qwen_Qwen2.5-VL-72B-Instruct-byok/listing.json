@@ -11,16 +11,16 @@
       "$doc_preset": "llm_description"
     },
     "JavaScript code example": {
-      "$doc_preset": "llm_code_example_javascript"
+      "$doc_preset": "llm_code_example_vision_javascript"
     },
     "Python code example": {
-      "$doc_preset": "llm_code_example_openai"
+      "$doc_preset": "llm_code_example_vision_requests"
     },
     "Python function calling code example": {
       "$doc_preset": "llm_code_example_fc_requests"
     },
     "cURL code example": {
-      "$doc_preset": "llm_code_example_shell"
+      "$doc_preset": "llm_code_example_vision_shell"
     }
   },
   "list_price": {
