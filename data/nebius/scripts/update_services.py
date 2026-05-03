@@ -87,13 +87,27 @@ class ModelSource:
                 details["litellm_provider"] = model_data["litellm_provider"]
 
         # Tool-call support per model.  Nebius's /v1/models doesn't expose
-        # this, so we trust LiteLLM's model registry.  Default False — better
-        # to omit the function-calling code example than to ship one that
-        # 400s upstream (e.g. gemma-2 was released without tool-use
-        # training).
-        supports_function_calling = bool(
-            (model_data or {}).get("supports_function_calling")
+        # this, so we trust LiteLLM's model registry — but with two
+        # corrections:
+        #
+        # 1. Prefer the ``nebius/<model_id>`` entry over arbitrary other
+        #    provider rows.  ``ModelDataLookup`` matches the first
+        #    ``*/<model_id>`` it finds in dict-iteration order, which can
+        #    return e.g. the deepinfra row when nebius hosts the same
+        #    model with different capabilities.
+        # 2. A small denylist for models LiteLLM marks as tool-capable
+        #    that Nebius nonetheless rejects with 400.  LiteLLM's per-
+        #    provider rows are sometimes optimistic; this list captures
+        #    upstream truth as we discover it.  Drop entries when Nebius
+        #    actually adds tool support.
+        nebius_specific = (self.litellm_data or {}).get(
+            f"nebius/{model_id}", model_data
         )
+        supports_function_calling = bool(
+            (nebius_specific or {}).get("supports_function_calling")
+        )
+        if model_id in self._FC_DENYLIST:
+            supports_function_calling = False
 
         if "owned_by" in model_info:
             details["owned_by"] = model_info["owned_by"]
@@ -182,6 +196,13 @@ class ModelSource:
         r"(?:^|[-_/])(?:vision|llava|vlm|vl)(?:[-_/]|\d+|$)",
         re.IGNORECASE,
     )
+
+    # Models LiteLLM marks as tool-capable but Nebius's chat-completion
+    # endpoint rejects with 400 when ``tools`` is sent.  Empirically
+    # discovered — drop entries when Nebius adds upstream support.
+    _FC_DENYLIST = frozenset({
+        "meta-llama/Meta-Llama-3.1-8B-Instruct",
+    })
 
     def _determine_service_type(self, model_id: str) -> str:
         """Map model id to a platform-recognised ``service_type``.
