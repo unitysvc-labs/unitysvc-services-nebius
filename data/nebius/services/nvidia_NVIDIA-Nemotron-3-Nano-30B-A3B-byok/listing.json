@@ -26,7 +26,7 @@
   "user_access_interfaces": {
     "provider_api": {
       "access_method": "http",
-      "base_url": "${API_GATEWAY_BASE_URL}/p/nebius",
+      "base_url": "${API_GATEWAY_BASE_URL}/nebius",
       "routing_key": {
         "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B"
       }
