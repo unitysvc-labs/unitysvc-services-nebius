@@ -27,7 +27,7 @@
   "user_access_interfaces": {
     "provider_api": {
       "access_method": "http",
-      "base_url": "${API_GATEWAY_BASE_URL}/{{ service_name }}",
+      "base_url": "${API_GATEWAY_BASE_URL}/nebius",
       "routing_key": {
         "model": "nvidia/Llama-3_1-Nemotron-Ultra-253B-v1"
       }
