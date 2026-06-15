@@ -1,0 +1,42 @@
+{
+  "parameters": {
+    "api_base_url": "https://api.studio.nebius.com/v1/",
+    "capabilities": [
+      "llm"
+    ],
+    "description": "Moonshotai/Kimi K2.5 language model",
+    "details": {
+      "context_length": 262144,
+      "litellm_provider": "baseten",
+      "metadata_sources": {
+        "context_length": "openrouter"
+      },
+      "mode": "chat",
+      "object": "model",
+      "owned_by": "system",
+      "parameter_count": null
+    },
+    "display_name": "Moonshotai/Kimi K2.5",
+    "env_api_key_name": "NEBIUS_API_KEY",
+    "is_vision": false,
+    "list_price": {
+      "description": "Pricing Per 1M Tokens Input/Output",
+      "input": "0.6",
+      "output": "3",
+      "reference": null,
+      "type": "one_million_tokens"
+    },
+    "offering_name": "moonshotai/Kimi-K2.5",
+    "payout_price": {
+      "description": "Pricing Per 1M Tokens Input/Output",
+      "input": "0.6",
+      "output": "3",
+      "reference": null,
+      "type": "one_million_tokens"
+    },
+    "provider_display_name": "Nebius",
+    "service_type": "llm",
+    "status": "ready",
+    "supports_function_calling": false
+  }
+}

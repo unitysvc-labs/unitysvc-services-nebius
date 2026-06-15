@@ -1,0 +1,45 @@
+{
+  "parameters": {
+    "api_base_url": "https://api.studio.nebius.com/v1/",
+    "capabilities": [
+      "llm"
+    ],
+    "description": "Deepseek Ai/Deepseek V3.2 language model",
+    "details": {
+      "context_length": 163840,
+      "litellm_provider": "gmi",
+      "max_input_tokens": 163840,
+      "max_output_tokens": 16384,
+      "max_tokens": 16384,
+      "metadata_sources": {
+        "context_length": "litellm"
+      },
+      "mode": "chat",
+      "object": "model",
+      "owned_by": "system",
+      "parameter_count": null
+    },
+    "display_name": "Deepseek Ai/Deepseek V3.2",
+    "env_api_key_name": "NEBIUS_API_KEY",
+    "is_vision": false,
+    "list_price": {
+      "description": "Pricing Per 1M Tokens Input/Output",
+      "input": "0.28",
+      "output": "0.39999999999999997",
+      "reference": null,
+      "type": "one_million_tokens"
+    },
+    "offering_name": "deepseek-ai/DeepSeek-V3.2",
+    "payout_price": {
+      "description": "Pricing Per 1M Tokens Input/Output",
+      "input": "0.28",
+      "output": "0.39999999999999997",
+      "reference": null,
+      "type": "one_million_tokens"
+    },
+    "provider_display_name": "Nebius",
+    "service_type": "llm",
+    "status": "ready",
+    "supports_function_calling": true
+  }
+}

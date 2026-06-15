@@ -1,0 +1,46 @@
+{
+  "parameters": {
+    "api_base_url": "https://api.studio.nebius.com/v1/",
+    "capabilities": [
+      "llm"
+    ],
+    "description": "Openai/Gpt Oss 120B language model",
+    "details": {
+      "context_length": 131072,
+      "litellm_provider": "deepinfra",
+      "max_input_tokens": 131072,
+      "max_output_tokens": 131072,
+      "max_tokens": 131072,
+      "metadata_sources": {
+        "context_length": "openrouter",
+        "parameter_count": "huggingface_safetensors"
+      },
+      "mode": "chat",
+      "object": "model",
+      "owned_by": "system",
+      "parameter_count": 118244966400
+    },
+    "display_name": "Openai/Gpt Oss 120B",
+    "env_api_key_name": "NEBIUS_API_KEY",
+    "is_vision": false,
+    "list_price": {
+      "description": "Pricing Per 1M Tokens Input/Output",
+      "input": "0.049999999999999996",
+      "output": "0.44999999999999996",
+      "reference": null,
+      "type": "one_million_tokens"
+    },
+    "offering_name": "openai/gpt-oss-120b",
+    "payout_price": {
+      "description": "Pricing Per 1M Tokens Input/Output",
+      "input": "0.049999999999999996",
+      "output": "0.44999999999999996",
+      "reference": null,
+      "type": "one_million_tokens"
+    },
+    "provider_display_name": "Nebius",
+    "service_type": "llm",
+    "status": "ready",
+    "supports_function_calling": true
+  }
+}

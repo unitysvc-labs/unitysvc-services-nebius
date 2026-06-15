@@ -1,0 +1,46 @@
+{
+  "parameters": {
+    "api_base_url": "https://api.studio.nebius.com/v1/",
+    "capabilities": [
+      "llm"
+    ],
+    "description": "Google/Gemma 3 27B It language model",
+    "details": {
+      "context_length": 131072,
+      "litellm_provider": "deepinfra",
+      "max_input_tokens": 131072,
+      "max_output_tokens": 131072,
+      "max_tokens": 131072,
+      "metadata_sources": {
+        "context_length": "openrouter",
+        "parameter_count": "huggingface_safetensors"
+      },
+      "mode": "chat",
+      "object": "model",
+      "owned_by": "system",
+      "parameter_count": 27432406640
+    },
+    "display_name": "Google/Gemma 3 27B It",
+    "env_api_key_name": "NEBIUS_API_KEY",
+    "is_vision": false,
+    "list_price": {
+      "description": "Pricing Per 1M Tokens Input/Output",
+      "input": "0.09",
+      "output": "0.16",
+      "reference": null,
+      "type": "one_million_tokens"
+    },
+    "offering_name": "google/gemma-3-27b-it",
+    "payout_price": {
+      "description": "Pricing Per 1M Tokens Input/Output",
+      "input": "0.09",
+      "output": "0.16",
+      "reference": null,
+      "type": "one_million_tokens"
+    },
+    "provider_display_name": "Nebius",
+    "service_type": "llm",
+    "status": "ready",
+    "supports_function_calling": true
+  }
+}

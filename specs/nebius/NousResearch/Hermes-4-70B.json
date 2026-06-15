@@ -1,0 +1,29 @@
+{
+  "parameters": {
+    "api_base_url": "https://api.studio.nebius.com/v1/",
+    "capabilities": [
+      "llm"
+    ],
+    "description": "Nousresearch/Hermes 4 70B language model",
+    "details": {
+      "context_length": 131072,
+      "metadata_sources": {
+        "context_length": "openrouter",
+        "parameter_count": "huggingface_safetensors"
+      },
+      "object": "model",
+      "owned_by": "system",
+      "parameter_count": 70553706496
+    },
+    "display_name": "Nousresearch/Hermes 4 70B",
+    "env_api_key_name": "NEBIUS_API_KEY",
+    "is_vision": false,
+    "list_price": null,
+    "offering_name": "NousResearch/Hermes-4-70B",
+    "payout_price": null,
+    "provider_display_name": "Nebius",
+    "service_type": "llm",
+    "status": "ready",
+    "supports_function_calling": false
+  }
+}

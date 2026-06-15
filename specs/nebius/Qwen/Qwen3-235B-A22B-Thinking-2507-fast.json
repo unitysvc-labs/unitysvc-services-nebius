@@ -1,0 +1,28 @@
+{
+  "parameters": {
+    "api_base_url": "https://api.studio.nebius.com/v1/",
+    "capabilities": [
+      "llm"
+    ],
+    "description": "Qwen/Qwen3 235B A22B Thinking 2507 Fast language model",
+    "details": {
+      "context_length": 262144,
+      "metadata_sources": {
+        "context_length": "openrouter"
+      },
+      "object": "model",
+      "owned_by": "system",
+      "parameter_count": null
+    },
+    "display_name": "Qwen/Qwen3 235B A22B Thinking 2507 Fast",
+    "env_api_key_name": "NEBIUS_API_KEY",
+    "is_vision": false,
+    "list_price": null,
+    "offering_name": "Qwen/Qwen3-235B-A22B-Thinking-2507-fast",
+    "payout_price": null,
+    "provider_display_name": "Nebius",
+    "service_type": "llm",
+    "status": "ready",
+    "supports_function_calling": false
+  }
+}

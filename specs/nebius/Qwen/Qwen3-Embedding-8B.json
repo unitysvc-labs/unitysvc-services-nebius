@@ -1,0 +1,28 @@
+{
+  "parameters": {
+    "api_base_url": "https://api.studio.nebius.com/v1/",
+    "capabilities": [
+      "embedding"
+    ],
+    "description": "Qwen/Qwen3 Embedding 8B embedding model",
+    "details": {
+      "context_length": null,
+      "metadata_sources": {
+        "parameter_count": "huggingface_safetensors"
+      },
+      "object": "model",
+      "owned_by": "system",
+      "parameter_count": 7567295488
+    },
+    "display_name": "Qwen/Qwen3 Embedding 8B",
+    "env_api_key_name": "NEBIUS_API_KEY",
+    "is_vision": false,
+    "list_price": null,
+    "offering_name": "Qwen/Qwen3-Embedding-8B",
+    "payout_price": null,
+    "provider_display_name": "Nebius",
+    "service_type": "embedding",
+    "status": "ready",
+    "supports_function_calling": false
+  }
+}
