@@ -1,0 +1,28 @@
+{
+  "parameters": {
+    "api_base_url": "https://api.studio.nebius.com/v1/",
+    "capabilities": [
+      "llm"
+    ],
+    "description": "Nvidia/Nemotron 3 Ultra 550B A55B language model",
+    "details": {
+      "context_length": 1000000,
+      "metadata_sources": {
+        "context_length": "openrouter"
+      },
+      "object": "model",
+      "owned_by": "system",
+      "parameter_count": null
+    },
+    "display_name": "Nvidia/Nemotron 3 Ultra 550B A55B",
+    "env_api_key_name": "NEBIUS_API_KEY",
+    "is_vision": false,
+    "list_price": null,
+    "offering_name": "nvidia/Nemotron-3-Ultra-550b-a55b",
+    "payout_price": null,
+    "provider_display_name": "Nebius",
+    "service_type": "llm",
+    "status": "ready",
+    "supports_function_calling": false
+  }
+}

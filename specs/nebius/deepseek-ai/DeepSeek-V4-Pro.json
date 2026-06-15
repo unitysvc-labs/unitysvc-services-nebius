@@ -1,0 +1,25 @@
+{
+  "parameters": {
+    "api_base_url": "https://api.studio.nebius.com/v1/",
+    "capabilities": [
+      "llm"
+    ],
+    "description": "Deepseek Ai/Deepseek V4 Pro language model",
+    "details": {
+      "context_length": null,
+      "object": "model",
+      "owned_by": "system",
+      "parameter_count": null
+    },
+    "display_name": "Deepseek Ai/Deepseek V4 Pro",
+    "env_api_key_name": "NEBIUS_API_KEY",
+    "is_vision": false,
+    "list_price": null,
+    "offering_name": "deepseek-ai/DeepSeek-V4-Pro",
+    "payout_price": null,
+    "provider_display_name": "Nebius",
+    "service_type": "llm",
+    "status": "ready",
+    "supports_function_calling": false
+  }
+}
