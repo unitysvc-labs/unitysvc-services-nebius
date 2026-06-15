@@ -1,3 +1,7 @@
 {
-  "service_id": "e323131e-3457-4c88-9eb2-de1106ef6709"
+  "display_name": "Meta Llama/Meta Llama 3.1 8B Instruct",
+  "name": "nebius/meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "service_id": "e323131e-3457-4c88-9eb2-de1106ef6709",
+  "status": "updated",
+  "time_created": "2026-06-06T15:44:39.493306Z"
 }
