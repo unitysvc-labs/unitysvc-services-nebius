@@ -21,7 +21,7 @@ from unitysvc_sellers.params_render import write_params_from_iterator
 # Provider Configuration
 PROVIDER_NAME = "nebius"
 PROVIDER_DISPLAY_NAME = "Nebius"
-API_BASE_URL = "https://api.studio.nebius.com/v1/"
+API_BASE_URL = "https://api.studio.nebius.com/v1"
 ENV_API_KEY_NAME = "NEBIUS_API_KEY"
 
 SCRIPT_DIR = Path(__file__).parent
@@ -43,7 +43,7 @@ class ModelSource:
         print(f"Fetching models from {PROVIDER_DISPLAY_NAME} API...")
         try:
             r = httpx.get(
-                f"{API_BASE_URL}models",
+                f"{API_BASE_URL}/models",
                 headers={"Authorization": f"Bearer {self.api_key}"},
                 timeout=30.0,
             )
