@@ -7,7 +7,7 @@
     ],
     "description": "Qwen/Qwen2.5 Vl 72B Instruct vision-language model",
     "details": {
-      "context_length": 131072,
+      "context_length": 128000,
       "litellm_provider": "nebius",
       "max_input_tokens": 131072,
       "max_output_tokens": 131072,

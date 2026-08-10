@@ -4,35 +4,36 @@
     "capabilities": [
       "llm"
     ],
-    "description": "Qwen/Qwen3.5 397B A17B language model",
+    "description": "Deepseek Ai/Deepseek V4 Flash language model",
     "details": {
-      "context_length": 262144,
-      "litellm_provider": "together_ai",
-      "max_input_tokens": 262144,
+      "context_length": 32768,
+      "litellm_provider": "tensormesh",
+      "max_input_tokens": 32768,
+      "max_output_tokens": 32768,
       "metadata_sources": {
-        "context_length": "openrouter",
+        "context_length": "litellm",
         "parameter_count": "huggingface_safetensors"
       },
       "mode": "chat",
       "object": "model",
       "owned_by": "system",
-      "parameter_count": 403397920304
+      "parameter_count": 283467841536
     },
-    "display_name": "Qwen/Qwen3.5 397B A17B",
+    "display_name": "Deepseek Ai/Deepseek V4 Flash",
     "env_api_key_name": "NEBIUS_API_KEY",
     "is_vision": false,
     "list_price": {
       "description": "Pricing Per 1M Tokens Input/Output",
-      "input": "0.6",
-      "output": "3.5999999999999996",
+      "input": "0.14",
+      "output": "0.28",
       "reference": null,
       "type": "one_million_tokens"
     },
-    "offering_name": "Qwen/Qwen3.5-397B-A17B",
+    "offering_name": "deepseek-ai/DeepSeek-V4-Flash",
     "payout_price": {
       "description": "Pricing Per 1M Tokens Input/Output",
-      "input": "0.6",
-      "output": "3.5999999999999996",
+      "input": "0.14",
+      "output": "0.28",
       "reference": null,
       "type": "one_million_tokens"
     },
