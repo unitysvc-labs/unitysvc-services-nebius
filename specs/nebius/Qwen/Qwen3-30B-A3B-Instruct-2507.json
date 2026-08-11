@@ -6,7 +6,7 @@
     ],
     "description": "Qwen/Qwen3 30B A3B Instruct 2507 language model",
     "details": {
-      "context_length": 131072,
+      "context_length": 262144,
       "metadata_sources": {
         "context_length": "openrouter",
         "parameter_count": "huggingface_safetensors"

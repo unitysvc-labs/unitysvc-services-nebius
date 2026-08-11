@@ -8,10 +8,13 @@
     "details": {
       "context_length": null,
       "litellm_provider": "baseten",
+      "metadata_sources": {
+        "parameter_count": "huggingface_safetensors"
+      },
       "mode": "chat",
       "object": "model",
       "owned_by": "system",
-      "parameter_count": null
+      "parameter_count": 227410968576
     },
     "display_name": "Minimaxai/Minimax M2.5",
     "env_api_key_name": "NEBIUS_API_KEY",
