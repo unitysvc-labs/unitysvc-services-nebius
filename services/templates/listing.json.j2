@@ -43,6 +43,15 @@
     "Python code example": {
       "$doc_preset": "llm_code_example_vision_requests"
     },
+{#- R9 (issue #1768): pair the OpenAI-style example with Anthropic-style
+    (SDK + shell) so customers see both dialects the byok llm_translator
+    accepts. -#}
+    "Python code example (Anthropic-style input)": {
+      "$doc_preset": "llm_code_example_anthropic_to_openai_sdk"
+    },
+    "cURL code example (Anthropic-style input)": {
+      "$doc_preset": "llm_code_example_anthropic_to_openai_shell"
+    },
 {%- if supports_function_calling %}
     "Python function calling code example": {
       "$doc_preset": "llm_code_example_fc_requests"
@@ -63,6 +72,15 @@
 {%- else %},
     "Python code example": {
       "$doc_preset": "llm_code_example_openai"
+    },
+{#- R9 (issue #1768): pair the OpenAI-style example with Anthropic-style
+    (SDK + shell) so customers see both dialects the byok llm_translator
+    accepts. -#}
+    "Python code example (Anthropic-style input)": {
+      "$doc_preset": "llm_code_example_anthropic_to_openai_sdk"
+    },
+    "cURL code example (Anthropic-style input)": {
+      "$doc_preset": "llm_code_example_anthropic_to_openai_shell"
     },
 {%- if supports_function_calling %}
     "Python function calling code example": {

@@ -1,23 +1,51 @@
 {
   "name": "{{ offering_name }}",
   "display_name": "{{ display_name }}",
-  "description": {{ description | tojson }},
+{#- Multi-paragraph marketplace description (the validator requires >=2
+    paragraphs separated by a blank line; the populate script emits a one-line
+    brief).  Teaser + detail + how-to, mirroring the deepseek reference.  The
+    dual-dialect how-to only applies to chat-completion (llm) offerings; other
+    service types get a generic how-to. #}
+{%- set _brief = description | default(display_name ~ ' — a ' ~ service_type ~ ' model served by ' ~ provider_display_name, true) %}
+{%- set _ctx = ' with a ' ~ details.context_length ~ '-token context window' if details.context_length else '' %}
+{%- set _detail = display_name ~ ' is served by ' ~ provider_display_name ~ ' over an OpenAI-compatible API' ~ _ctx ~ '. Requests are proxied through the UnitySVC gateway; you bring your own ' ~ provider_display_name ~ ' API key, so token usage is billed by ' ~ provider_display_name ~ ' directly and the service is free through UnitySVC.' %}
+{%- if service_type == "llm" %}
+{%- set _howto = 'Reach it through the UnitySVC gateway with your own ' ~ provider_display_name ~ ' API key (the byok channel). The endpoint accepts both OpenAI Chat Completions and Anthropic Messages requests — the gateway auto-detects the dialect, translates to the upstream, and returns the response in the format you sent. See the code examples for both styles.' %}
+{%- else %}
+{%- set _howto = 'Reach it through the UnitySVC gateway with your own ' ~ provider_display_name ~ ' API key (the byok channel). See the code examples to get started.' %}
+{%- endif %}
+{%- set _description = _brief ~ '\n\n' ~ _detail ~ '\n\n' ~ _howto %}
+  "description": {{ _description | tojson }},
   "service_type": "{{ service_type }}",
   "capabilities": {{ capabilities | default([service_type]) | tojson }},
   "status": "{{ status | default('ready') }}",
   "currency": "USD",
   "tags": ["ai", "gateway", "byok"],
+{#- R8 (issue #1768): chat-completion offerings advertise the request/response
+    dialects the gateway accepts.  The byok channel's llm_translator (R7) lets
+    the gateway accept Anthropic Messages requests and translate them to the
+    upstream OpenAI-compatible API.  Embeddings/rerank have no Anthropic dialect,
+    so they keep their plain details. -#}
+{%- if service_type == "llm" %}
+  "details": {{ dict(details or {}, input_formats=["openai", "anthropic"], output_formats=["openai_response", "anthropic_response"]) | tojson }},
+{%- else %}
   "details": {{ details | tojson }},
+{%- endif %}
 {%- if payout_price %}
   "payout_price": {{ payout_price | tojson }},
 {%- endif %}
   "upstream_access_config": {
-    "{{ provider_display_name }} API": {
+    "byok": {
       "access_method": "http",
       "base_url": "{{ api_base_url | replace('/v1', '') }}",
       "api_key": "${ customer_secrets.{{ env_api_key_name }} }",
       "rate_limits": [],
       "routing_key": {"model": "{{ offering_name }}"}
+{%- if service_type == "llm" %},
+      "request_transformer": {
+        "llm_translator": "anthropic_to_openai"
+      }
+{%- endif %}
     }
   }
 }

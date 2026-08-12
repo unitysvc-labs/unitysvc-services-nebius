@@ -3,9 +3,13 @@
     "llm"
   ],
   "currency": "USD",
-  "description": "Meta Llama/Meta Llama 3.1 8B Instruct language model",
+  "description": "Meta Llama/Meta Llama 3.1 8B Instruct language model\n\nMeta Llama/Meta Llama 3.1 8B Instruct is served by Nebius over an OpenAI-compatible API with a 131072-token context window. Requests are proxied through the UnitySVC gateway; you bring your own Nebius API key, so token usage is billed by Nebius directly and the service is free through UnitySVC.\n\nReach it through the UnitySVC gateway with your own Nebius API key (the byok channel). The endpoint accepts both OpenAI Chat Completions and Anthropic Messages requests \u2014 the gateway auto-detects the dialect, translates to the upstream, and returns the response in the format you sent. See the code examples for both styles.",
   "details": {
     "context_length": 131072,
+    "input_formats": [
+      "openai",
+      "anthropic"
+    ],
     "litellm_provider": "deepinfra",
     "max_input_tokens": 131072,
     "max_output_tokens": 131072,
@@ -15,6 +19,10 @@
     },
     "mode": "chat",
     "object": "model",
+    "output_formats": [
+      "openai_response",
+      "anthropic_response"
+    ],
     "owned_by": "system",
     "parameter_count": null
   },
@@ -36,11 +44,14 @@
   ],
   "time_created": "2026-03-22T22:44:51.202936Z",
   "upstream_access_config": {
-    "Nebius API": {
+    "byok": {
       "access_method": "http",
       "api_key": "${ customer_secrets.NEBIUS_API_KEY }",
       "base_url": "https://api.studio.nebius.com",
       "rate_limits": [],
+      "request_transformer": {
+        "llm_translator": "anthropic_to_openai"
+      },
       "routing_key": {
         "model": "meta-llama/Meta-Llama-3.1-8B-Instruct"
       }
