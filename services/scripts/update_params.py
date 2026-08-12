@@ -21,7 +21,13 @@ from unitysvc_sellers.params_render import write_params_from_iterator
 # Provider Configuration
 PROVIDER_NAME = "nebius"
 PROVIDER_DISPLAY_NAME = "Nebius"
-API_BASE_URL = "https://api.studio.nebius.com/v1"
+# Nebius renamed "Studio" to "Token Factory"; docs.nebius.com/studio now
+# redirects to docs.tokenfactory.nebius.com and the documented endpoint is
+# api.tokenfactory.<region>.nebius.com. The old studio host still resolves but
+# is legacy branding. We pin the us-central1 region: it serves 26 of the 29
+# models the global endpoint lists, and a service we cannot actually reach
+# from our region is not worth publishing.
+API_BASE_URL = "https://api.tokenfactory.us-central1.nebius.com/v1"
 ENV_API_KEY_NAME = "NEBIUS_API_KEY"
 
 SCRIPT_DIR = Path(__file__).parent

@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "api_base_url": "https://api.studio.nebius.com/v1",
+    "api_base_url": "https://api.tokenfactory.us-central1.nebius.com/v1",
     "capabilities": [
       "llm",
       "vision"
@@ -13,12 +13,13 @@
       "max_output_tokens": 131072,
       "max_tokens": 131072,
       "metadata_sources": {
-        "context_length": "openrouter"
+        "context_length": "openrouter",
+        "parameter_count": "huggingface_safetensors"
       },
       "mode": "chat",
       "object": "model",
       "owned_by": "system",
-      "parameter_count": null
+      "parameter_count": 73410777344
     },
     "display_name": "Qwen/Qwen2.5 Vl 72B Instruct",
     "env_api_key_name": "NEBIUS_API_KEY",

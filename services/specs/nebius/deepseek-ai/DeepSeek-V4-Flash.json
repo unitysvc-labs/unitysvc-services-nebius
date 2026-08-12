@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "api_base_url": "https://api.studio.nebius.com/v1",
+    "api_base_url": "https://api.tokenfactory.us-central1.nebius.com/v1",
     "capabilities": [
       "llm"
     ],
@@ -11,12 +11,13 @@
       "max_input_tokens": 32768,
       "max_output_tokens": 32768,
       "metadata_sources": {
-        "context_length": "litellm"
+        "context_length": "litellm",
+        "parameter_count": "huggingface_safetensors"
       },
       "mode": "chat",
       "object": "model",
       "owned_by": "system",
-      "parameter_count": null
+      "parameter_count": 283467841536
     },
     "display_name": "Deepseek Ai/Deepseek V4 Flash",
     "env_api_key_name": "NEBIUS_API_KEY",

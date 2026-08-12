@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "api_base_url": "https://api.studio.nebius.com/v1",
+    "api_base_url": "https://api.tokenfactory.us-central1.nebius.com/v1",
     "capabilities": [
       "llm"
     ],
@@ -12,12 +12,13 @@
       "max_output_tokens": 40960,
       "max_tokens": 40960,
       "metadata_sources": {
-        "context_length": "openrouter"
+        "context_length": "openrouter",
+        "parameter_count": "huggingface_safetensors"
       },
       "mode": "chat",
       "object": "model",
       "owned_by": "system",
-      "parameter_count": null
+      "parameter_count": 32762123264
     },
     "display_name": "Qwen/Qwen3 32B",
     "env_api_key_name": "NEBIUS_API_KEY",

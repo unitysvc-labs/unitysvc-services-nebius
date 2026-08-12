@@ -1,15 +1,18 @@
 {
   "parameters": {
-    "api_base_url": "https://api.studio.nebius.com/v1",
+    "api_base_url": "https://api.tokenfactory.us-central1.nebius.com/v1",
     "capabilities": [
       "llm"
     ],
     "description": "Nvidia/Llama 3 1 Nemotron Ultra 253B V1 language model",
     "details": {
       "context_length": null,
+      "metadata_sources": {
+        "parameter_count": "huggingface_safetensors"
+      },
       "object": "model",
       "owned_by": "system",
-      "parameter_count": null
+      "parameter_count": 253401268224
     },
     "display_name": "Nvidia/Llama 3 1 Nemotron Ultra 253B V1",
     "env_api_key_name": "NEBIUS_API_KEY",

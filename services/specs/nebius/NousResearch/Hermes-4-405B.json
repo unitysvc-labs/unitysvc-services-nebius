@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "api_base_url": "https://api.studio.nebius.com/v1",
+    "api_base_url": "https://api.tokenfactory.us-central1.nebius.com/v1",
     "capabilities": [
       "llm"
     ],
@@ -8,11 +8,12 @@
     "details": {
       "context_length": 131072,
       "metadata_sources": {
-        "context_length": "openrouter"
+        "context_length": "openrouter",
+        "parameter_count": "huggingface_safetensors"
       },
       "object": "model",
       "owned_by": "system",
-      "parameter_count": null
+      "parameter_count": 405853388800
     },
     "display_name": "Nousresearch/Hermes 4 405B",
     "env_api_key_name": "NEBIUS_API_KEY",
