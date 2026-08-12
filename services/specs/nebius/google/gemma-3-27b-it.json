@@ -1,12 +1,12 @@
 {
   "parameters": {
-    "api_base_url": "https://api.studio.nebius.com/v1",
+    "api_base_url": "https://api.tokenfactory.us-central1.nebius.com/v1",
     "capabilities": [
       "llm"
     ],
     "description": "Google/Gemma 3 27B It language model",
     "details": {
-      "context_length": 131072,
+      "context_length": 262144,
       "litellm_provider": "deepinfra",
       "max_input_tokens": 131072,
       "max_output_tokens": 131072,

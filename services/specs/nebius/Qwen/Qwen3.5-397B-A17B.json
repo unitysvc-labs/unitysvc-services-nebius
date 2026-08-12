@@ -1,6 +1,6 @@
 {
   "parameters": {
-    "api_base_url": "https://api.studio.nebius.com/v1",
+    "api_base_url": "https://api.tokenfactory.us-central1.nebius.com/v1",
     "capabilities": [
       "llm"
     ],
@@ -10,12 +10,13 @@
       "litellm_provider": "together_ai",
       "max_input_tokens": 262144,
       "metadata_sources": {
-        "context_length": "openrouter"
+        "context_length": "openrouter",
+        "parameter_count": "huggingface_safetensors"
       },
       "mode": "chat",
       "object": "model",
       "owned_by": "system",
-      "parameter_count": null
+      "parameter_count": 403397920304
     },
     "display_name": "Qwen/Qwen3.5 397B A17B",
     "env_api_key_name": "NEBIUS_API_KEY",

@@ -1,12 +1,12 @@
 {
   "parameters": {
-    "api_base_url": "https://api.studio.nebius.com/v1",
+    "api_base_url": "https://api.tokenfactory.us-central1.nebius.com/v1",
     "capabilities": [
       "llm"
     ],
     "description": "Nvidia/Nemotron 3 Ultra 550B A55B language model",
     "details": {
-      "context_length": 1000000,
+      "context_length": 512288,
       "metadata_sources": {
         "context_length": "openrouter"
       },

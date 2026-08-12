@@ -1,24 +1,25 @@
 {
   "parameters": {
-    "api_base_url": "https://api.studio.nebius.com/v1",
+    "api_base_url": "https://api.tokenfactory.us-central1.nebius.com/v1",
     "capabilities": [
       "llm"
     ],
-    "description": "Moonshotai/Kimi K2.5 Fast language model",
+    "description": "Moonshotai/Kimi K2.7 Code language model",
     "details": {
       "context_length": 262144,
       "metadata_sources": {
-        "context_length": "openrouter"
+        "context_length": "openrouter",
+        "parameter_count": "huggingface_safetensors"
       },
       "object": "model",
       "owned_by": "system",
-      "parameter_count": null
+      "parameter_count": 1014686023680
     },
-    "display_name": "Moonshotai/Kimi K2.5 Fast",
+    "display_name": "Moonshotai/Kimi K2.7 Code",
     "env_api_key_name": "NEBIUS_API_KEY",
     "is_vision": false,
     "list_price": null,
-    "offering_name": "moonshotai/Kimi-K2.5-fast",
+    "offering_name": "moonshotai/Kimi-K2.7-Code",
     "payout_price": null,
     "provider_display_name": "Nebius",
     "service_type": "llm",
