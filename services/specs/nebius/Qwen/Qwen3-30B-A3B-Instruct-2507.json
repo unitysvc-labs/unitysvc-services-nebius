@@ -6,14 +6,13 @@
     ],
     "description": "Qwen/Qwen3 30B A3B Instruct 2507 language model",
     "details": {
-      "context_length": 131072,
+      "context_length": 262144,
       "metadata_sources": {
-        "context_length": "openrouter",
-        "parameter_count": "huggingface_safetensors"
+        "context_length": "openrouter"
       },
       "object": "model",
       "owned_by": "system",
-      "parameter_count": 30532122624
+      "parameter_count": null
     },
     "display_name": "Qwen/Qwen3 30B A3B Instruct 2507",
     "env_api_key_name": "NEBIUS_API_KEY",

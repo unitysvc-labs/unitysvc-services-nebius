@@ -4,7 +4,7 @@
     "capabilities": [
       "llm"
     ],
-    "description": "Qwen/Qwen3 235B A22B Thinking 2507 Fast language model",
+    "description": "Moonshotai/Kimi K2.7 Code language model",
     "details": {
       "context_length": 262144,
       "metadata_sources": {
@@ -14,11 +14,11 @@
       "owned_by": "system",
       "parameter_count": null
     },
-    "display_name": "Qwen/Qwen3 235B A22B Thinking 2507 Fast",
+    "display_name": "Moonshotai/Kimi K2.7 Code",
     "env_api_key_name": "NEBIUS_API_KEY",
     "is_vision": false,
     "list_price": null,
-    "offering_name": "Qwen/Qwen3-235B-A22B-Thinking-2507-fast",
+    "offering_name": "moonshotai/Kimi-K2.7-Code",
     "payout_price": null,
     "provider_display_name": "Nebius",
     "service_type": "llm",

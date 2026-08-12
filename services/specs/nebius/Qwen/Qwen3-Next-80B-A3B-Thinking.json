@@ -12,13 +12,12 @@
       "max_output_tokens": 262144,
       "max_tokens": 262144,
       "metadata_sources": {
-        "context_length": "openrouter",
-        "parameter_count": "huggingface_safetensors"
+        "context_length": "openrouter"
       },
       "mode": "chat",
       "object": "model",
       "owned_by": "system",
-      "parameter_count": 81324862720
+      "parameter_count": null
     },
     "display_name": "Qwen/Qwen3 Next 80B A3B Thinking",
     "env_api_key_name": "NEBIUS_API_KEY",

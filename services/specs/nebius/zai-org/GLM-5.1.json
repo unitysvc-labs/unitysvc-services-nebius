@@ -7,12 +7,9 @@
     "description": "Zai Org/Glm 5.1 language model",
     "details": {
       "context_length": null,
-      "metadata_sources": {
-        "parameter_count": "huggingface_safetensors"
-      },
       "object": "model",
       "owned_by": "system",
-      "parameter_count": 753864119552
+      "parameter_count": null
     },
     "display_name": "Zai Org/Glm 5.1",
     "env_api_key_name": "NEBIUS_API_KEY",

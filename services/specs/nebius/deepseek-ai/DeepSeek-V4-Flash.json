@@ -4,39 +4,41 @@
     "capabilities": [
       "llm"
     ],
-    "description": "Moonshotai/Kimi K2.5 language model",
+    "description": "Deepseek Ai/Deepseek V4 Flash language model",
     "details": {
-      "context_length": 262144,
-      "litellm_provider": "baseten",
+      "context_length": 32768,
+      "litellm_provider": "tensormesh",
+      "max_input_tokens": 32768,
+      "max_output_tokens": 32768,
       "metadata_sources": {
-        "context_length": "openrouter"
+        "context_length": "litellm"
       },
       "mode": "chat",
       "object": "model",
       "owned_by": "system",
       "parameter_count": null
     },
-    "display_name": "Moonshotai/Kimi K2.5",
+    "display_name": "Deepseek Ai/Deepseek V4 Flash",
     "env_api_key_name": "NEBIUS_API_KEY",
     "is_vision": false,
     "list_price": {
       "description": "Pricing Per 1M Tokens Input/Output",
-      "input": "0.6",
-      "output": "3",
+      "input": "0.14",
+      "output": "0.28",
       "reference": null,
       "type": "one_million_tokens"
     },
-    "offering_name": "moonshotai/Kimi-K2.5",
+    "offering_name": "deepseek-ai/DeepSeek-V4-Flash",
     "payout_price": {
       "description": "Pricing Per 1M Tokens Input/Output",
-      "input": "0.6",
-      "output": "3",
+      "input": "0.14",
+      "output": "0.28",
       "reference": null,
       "type": "one_million_tokens"
     },
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",
-    "supports_function_calling": false
+    "supports_function_calling": true
   }
 }

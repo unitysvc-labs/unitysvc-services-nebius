@@ -4,18 +4,18 @@
     "capabilities": [
       "llm"
     ],
-    "description": "Deepseek Ai/Deepseek V3.2 Fast language model",
+    "description": "Nvidia/Nemotron 3 5 Lightning language model",
     "details": {
       "context_length": null,
       "object": "model",
       "owned_by": "system",
       "parameter_count": null
     },
-    "display_name": "Deepseek Ai/Deepseek V3.2 Fast",
+    "display_name": "Nvidia/Nemotron 3 5 Lightning",
     "env_api_key_name": "NEBIUS_API_KEY",
     "is_vision": false,
     "list_price": null,
-    "offering_name": "deepseek-ai/DeepSeek-V3.2-fast",
+    "offering_name": "nvidia/Nemotron-3_5-Lightning",
     "payout_price": null,
     "provider_display_name": "Nebius",
     "service_type": "llm",

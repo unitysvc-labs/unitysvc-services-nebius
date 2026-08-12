@@ -7,12 +7,9 @@
     "description": "Qwen/Qwen3 Embedding 8B embedding model",
     "details": {
       "context_length": null,
-      "metadata_sources": {
-        "parameter_count": "huggingface_safetensors"
-      },
       "object": "model",
       "owned_by": "system",
-      "parameter_count": 7567295488
+      "parameter_count": null
     },
     "display_name": "Qwen/Qwen3 Embedding 8B",
     "env_api_key_name": "NEBIUS_API_KEY",
