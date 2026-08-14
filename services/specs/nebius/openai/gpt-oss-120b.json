@@ -24,11 +24,9 @@
     "env_api_key_name": "NEBIUS_API_KEY",
     "is_vision": false,
     "list_price": {
-      "description": "Pricing Per 1M Tokens Input/Output",
-      "input": "0.35",
-      "output": "0.75",
-      "reference": null,
-      "type": "one_million_tokens"
+      "description": "Free (BYOK)",
+      "price": "0",
+      "type": "constant"
     },
     "offering_name": "openai/gpt-oss-120b",
     "payout_price": {
@@ -38,6 +36,7 @@
       "reference": null,
       "type": "one_million_tokens"
     },
+    "pricing_note": "$0.35 / $0.75 per 1M input/output tokens",
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",

@@ -23,11 +23,9 @@
     "env_api_key_name": "NEBIUS_API_KEY",
     "is_vision": false,
     "list_price": {
-      "description": "Pricing Per 1M Tokens Input/Output",
-      "input": "0.14",
-      "output": "0.28",
-      "reference": null,
-      "type": "one_million_tokens"
+      "description": "Free (BYOK)",
+      "price": "0",
+      "type": "constant"
     },
     "offering_name": "deepseek-ai/DeepSeek-V4-Flash",
     "payout_price": {
@@ -37,6 +35,7 @@
       "reference": null,
       "type": "one_million_tokens"
     },
+    "pricing_note": "$0.14 / $0.28 per 1M input/output tokens",
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",
