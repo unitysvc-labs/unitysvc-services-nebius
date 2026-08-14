@@ -24,11 +24,9 @@
     "env_api_key_name": "NEBIUS_API_KEY",
     "is_vision": false,
     "list_price": {
-      "description": "Pricing Per 1M Tokens Input/Output",
-      "input": "0.22999999999999998",
-      "output": "0.39999999999999997",
-      "reference": null,
-      "type": "one_million_tokens"
+      "description": "Free (BYOK)",
+      "price": "0",
+      "type": "constant"
     },
     "offering_name": "meta-llama/Llama-3.3-70B-Instruct",
     "payout_price": {
@@ -38,6 +36,7 @@
       "reference": null,
       "type": "one_million_tokens"
     },
+    "pricing_note": "$0.23 / $0.4 per 1M input/output tokens",
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",

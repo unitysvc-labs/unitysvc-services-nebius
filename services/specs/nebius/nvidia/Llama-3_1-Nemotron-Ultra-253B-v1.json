@@ -17,7 +17,11 @@
     "display_name": "Nvidia/Llama 3 1 Nemotron Ultra 253B V1",
     "env_api_key_name": "NEBIUS_API_KEY",
     "is_vision": false,
-    "list_price": null,
+    "list_price": {
+      "description": "Free (BYOK)",
+      "price": "0",
+      "type": "constant"
+    },
     "offering_name": "nvidia/Llama-3_1-Nemotron-Ultra-253B-v1",
     "payout_price": null,
     "provider_display_name": "Nebius",

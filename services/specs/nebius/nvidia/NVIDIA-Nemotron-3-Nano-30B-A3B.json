@@ -14,7 +14,11 @@
     "display_name": "Nvidia/Nvidia Nemotron 3 Nano 30B A3B",
     "env_api_key_name": "NEBIUS_API_KEY",
     "is_vision": false,
-    "list_price": null,
+    "list_price": {
+      "description": "Free (BYOK)",
+      "price": "0",
+      "type": "constant"
+    },
     "offering_name": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
     "payout_price": null,
     "provider_display_name": "Nebius",

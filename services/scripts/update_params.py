@@ -134,21 +134,20 @@ class ModelSource:
         if canonical["sources"]:
             details["metadata_sources"] = canonical["sources"]
 
-        # Extract pricing
-        pricing = None
-        if model_data:
-            if "input_cost_per_token" in model_data and "output_cost_per_token" in model_data:
-                input_price = float(
-                    model_data["input_cost_per_token"]) * 1_000_000
-                output_price = float(
-                    model_data["output_cost_per_token"]) * 1_000_000
-                pricing = {
-                    "type": "one_million_tokens",
-                    "input": self._format_price(input_price),
-                    "output": self._format_price(output_price),
-                    "description": "Pricing Per 1M Tokens Input/Output",
-                    "reference": None,
-                }
+        # BYOK: the customer's own key pays the provider directly, so the service
+        # is free through the gateway. Keep the price cell short ("Free (BYOK)");
+        # the provider's reference rates go into pricing_note, which the template
+        # renders as the closing paragraph of the offering description.
+        pricing = {"type": "constant", "price": "0", "description": "Free (BYOK)"}
+        pricing_note = None
+        if model_data and "input_cost_per_token" in model_data and "output_cost_per_token" in model_data:
+            input_price = float(model_data["input_cost_per_token"]) * 1_000_000
+            output_price = float(model_data["output_cost_per_token"]) * 1_000_000
+            pricing_note = (
+                f"${self._format_price(input_price)} / "
+                f"${self._format_price(output_price)} "
+                f"per 1M input/output tokens"
+            )
 
         # Description suffix tracks the offering's actual nature so
         # embeddings / VL / rerank don't all get described as "language
@@ -180,6 +179,8 @@ class ModelSource:
             "payout_price": pricing,
             # Listing fields
             "list_price": pricing,
+            # Reference rates for the BYOK pricing paragraph (template-rendered)
+            "pricing_note": pricing_note,
             "supports_function_calling": supports_function_calling,
             # Provider config (for templates)
             "provider_name": PROVIDER_NAME,
