@@ -28,13 +28,11 @@
     },
     "offering_name": "Qwen/Qwen3.5-397B-A17B",
     "payout_price": {
-      "description": "Pricing Per 1M Tokens Input/Output",
-      "input": "0.6",
-      "output": "3.5999999999999996",
-      "reference": null,
-      "type": "one_million_tokens"
+      "description": "Free (BYOK)",
+      "price": "0",
+      "type": "constant"
     },
-    "pricing_note": "$0.6 / $3.6 per 1M input/output tokens",
+    "pricing_note": "$0.6 / $3.5999999999999996 per 1M input/output tokens",
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",

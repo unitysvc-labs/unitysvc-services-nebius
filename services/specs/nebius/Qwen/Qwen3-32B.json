@@ -30,13 +30,11 @@
     },
     "offering_name": "Qwen/Qwen3-32B",
     "payout_price": {
-      "description": "Pricing Per 1M Tokens Input/Output",
-      "input": "0.09999999999999999",
-      "output": "0.28",
-      "reference": null,
-      "type": "one_million_tokens"
+      "description": "Free (BYOK)",
+      "price": "0",
+      "type": "constant"
     },
-    "pricing_note": "$0.1 / $0.28 per 1M input/output tokens",
+    "pricing_note": "$0.09999999999999999 / $0.28 per 1M input/output tokens",
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",

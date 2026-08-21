@@ -30,11 +30,9 @@
     },
     "offering_name": "Qwen/Qwen3-Next-80B-A3B-Thinking",
     "payout_price": {
-      "description": "Pricing Per 1M Tokens Input/Output",
-      "input": "0.14",
-      "output": "1.4",
-      "reference": null,
-      "type": "one_million_tokens"
+      "description": "Free (BYOK)",
+      "price": "0",
+      "type": "constant"
     },
     "pricing_note": "$0.14 / $1.4 per 1M input/output tokens",
     "provider_display_name": "Nebius",

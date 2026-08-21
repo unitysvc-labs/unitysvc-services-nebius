@@ -31,13 +31,11 @@
     },
     "offering_name": "Qwen/Qwen2.5-VL-72B-Instruct",
     "payout_price": {
-      "description": "Pricing Per 1M Tokens Input/Output",
-      "input": "0.13",
-      "output": "0.39999999999999997",
-      "reference": null,
-      "type": "one_million_tokens"
+      "description": "Free (BYOK)",
+      "price": "0",
+      "type": "constant"
     },
-    "pricing_note": "$0.13 / $0.4 per 1M input/output tokens",
+    "pricing_note": "$0.13 / $0.39999999999999997 per 1M input/output tokens",
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",

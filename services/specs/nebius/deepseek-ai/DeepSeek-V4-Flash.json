@@ -29,11 +29,9 @@
     },
     "offering_name": "deepseek-ai/DeepSeek-V4-Flash",
     "payout_price": {
-      "description": "Pricing Per 1M Tokens Input/Output",
-      "input": "0.14",
-      "output": "0.28",
-      "reference": null,
-      "type": "one_million_tokens"
+      "description": "Free (BYOK)",
+      "price": "0",
+      "type": "constant"
     },
     "pricing_note": "$0.14 / $0.28 per 1M input/output tokens",
     "provider_display_name": "Nebius",
