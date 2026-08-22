@@ -26,11 +26,9 @@
     },
     "offering_name": "MiniMaxAI/MiniMax-M2.5",
     "payout_price": {
-      "description": "Pricing Per 1M Tokens Input/Output",
-      "input": "0.3",
-      "output": "1.2",
-      "reference": null,
-      "type": "one_million_tokens"
+      "description": "Free (BYOK)",
+      "price": "0",
+      "type": "constant"
     },
     "pricing_note": "$0.3 / $1.2 per 1M input/output tokens",
     "provider_display_name": "Nebius",

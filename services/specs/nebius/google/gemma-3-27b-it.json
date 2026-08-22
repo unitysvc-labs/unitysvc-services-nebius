@@ -30,11 +30,9 @@
     },
     "offering_name": "google/gemma-3-27b-it",
     "payout_price": {
-      "description": "Pricing Per 1M Tokens Input/Output",
-      "input": "0.09",
-      "output": "0.16",
-      "reference": null,
-      "type": "one_million_tokens"
+      "description": "Free (BYOK)",
+      "price": "0",
+      "type": "constant"
     },
     "pricing_note": "$0.09 / $0.16 per 1M input/output tokens",
     "provider_display_name": "Nebius",

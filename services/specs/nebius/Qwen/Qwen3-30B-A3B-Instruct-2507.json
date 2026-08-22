@@ -24,7 +24,12 @@
       "type": "constant"
     },
     "offering_name": "Qwen/Qwen3-30B-A3B-Instruct-2507",
-    "payout_price": null,
+    "payout_price": {
+      "description": "Free (BYOK)",
+      "price": "0",
+      "type": "constant"
+    },
+    "pricing_note": null,
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",
