@@ -2,7 +2,7 @@
   "parameters": {
     "api_base_url": "https://api.tokenfactory.us-central1.nebius.com/v1",
     "capabilities": [
-      "llm"
+      "chat"
     ],
     "description": "Moonshotai/Kimi K2.7 Code language model",
     "details": {

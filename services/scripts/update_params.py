@@ -238,20 +238,28 @@ class ModelSource:
             return "rerank"
         return "llm"
 
-    def _determine_capabilities(self, service_type: str, model_id: str) -> list[str]:
-        """Per-feature tags that ride alongside ``service_type``.
+    #: ``service_type`` -> platform capability vocabulary
+    #: (unitysvc ``docs/capabilities.yml``).  A capability names what the
+    #: caller GETS; ``service_type`` is the broad category, so the two are
+    #: not interchangeable and this repo may not just echo one into the
+    #: other.
+    _SERVICE_TYPE_CAPABILITY = {
+        "llm": "chat",
+        "embedding": "embed",
+        "rerank": "rerank",
+    }
 
-        The platform's capability taxonomy is open; we mirror what other
-        provider repos emit so dashboards / search can group by feature.
-        Vision detection reuses the same segment-aware regex as the old
-        VL-as-service-type path — it catches ``Qwen2.5-VL`` /
-        ``InternVL`` / ``LLaVA`` / explicit ``vision`` / ``vlm`` markers
-        without false-positiving on ``-v1`` version suffixes.
+    def _determine_capabilities(self, service_type: str, model_id: str) -> list[str]:
+        """The platform capability this offering provides.
+
+        Exactly one entry: what the caller gets from a call.  ``vision`` is
+        deliberately NOT included — an image in the request qualifies a chat
+        call, it is not a separate thing the service does, so it is an
+        attribute rather than a capability.  It is not lost: ``is_vision``
+        rides in the params alongside this and is what the listing template
+        dispatches vision code examples on.
         """
-        caps: list[str] = [service_type]
-        if service_type == "llm" and self._VL_PATTERN.search(model_id):
-            caps.append("vision")
-        return caps
+        return [self._SERVICE_TYPE_CAPABILITY.get(service_type, "chat")]
 
     def _format_price(self, price: float) -> str:
         """Format price without trailing .0 for whole numbers."""
