@@ -39,7 +39,12 @@
   "summary": {{ (_brief | trim)[:200] | tojson }},
   "description": {{ _description | tojson }},
   "service_type": "{{ service_type }}",
-  "capabilities": {{ capabilities | default([service_type]) | tojson }},
+{#- Platform capability vocabulary (unitysvc docs/capabilities.yml) — what the
+    caller GETS, which is not the same axis as service_type. The populator
+    writes this into every param file; the map here is the fallback for a param
+    file that predates it. -#}
+{%- set _cap = {"llm": "chat", "embedding": "embed", "rerank": "rerank"}.get(service_type, "chat") %}
+  "capabilities": {{ capabilities | default([_cap]) | tojson }},
   "status": "{{ status | default('ready') }}",
   "currency": "USD",
   "tags": ["ai", "gateway", "byok"],
