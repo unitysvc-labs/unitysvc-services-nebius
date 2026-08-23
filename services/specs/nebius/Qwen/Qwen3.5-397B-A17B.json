@@ -32,7 +32,7 @@
       "price": "0",
       "type": "constant"
     },
-    "pricing_note": "$0.6 / $3.5999999999999996 per 1M input/output tokens",
+    "pricing_note": "$0.6 / $3.6 per 1M input/output tokens",
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",

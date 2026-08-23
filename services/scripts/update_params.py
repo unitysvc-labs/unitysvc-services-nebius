@@ -141,8 +141,15 @@ class ModelSource:
         pricing = {"type": "constant", "price": "0", "description": "Free (BYOK)"}
         pricing_note = None
         if model_data and "input_cost_per_token" in model_data and "output_cost_per_token" in model_data:
-            input_price = float(model_data["input_cost_per_token"]) * 1_000_000
-            output_price = float(model_data["output_cost_per_token"]) * 1_000_000
+            # Round after scaling. Upstream quotes a per-TOKEN cost, so the
+            # ×1e6 lands on binary-float noise — 1e-7 becomes
+            # 0.09999999999999999, which `_format_price` faithfully renders in
+            # full. Every sibling catalog's populate script already rounds here;
+            # this one did not, and shipped rates like
+            # "$0.13 / $0.39999999999999997". 4dp is the sibling convention and
+            # is finer than any published per-1M rate.
+            input_price = round(float(model_data["input_cost_per_token"]) * 1_000_000, 4)
+            output_price = round(float(model_data["output_cost_per_token"]) * 1_000_000, 4)
             pricing_note = (
                 f"${self._format_price(input_price)} / "
                 f"${self._format_price(output_price)} "
