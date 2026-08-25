@@ -4,23 +4,17 @@
     "capabilities": [
       "chat"
     ],
-    "description": "Qwen/Qwen2.5 Vl 72B Instruct language model",
+    "description": "Deepseek Ai/Deepseek V4 Flash 0731 language model",
     "details": {
-      "context_length": 128000,
-      "litellm_provider": "nebius",
-      "max_input_tokens": 131072,
-      "max_output_tokens": 131072,
-      "max_tokens": 131072,
+      "context_length": null,
       "metadata_sources": {
-        "context_length": "openrouter",
         "parameter_count": "huggingface_safetensors"
       },
-      "mode": "chat",
       "object": "model",
       "owned_by": "system",
-      "parameter_count": 73410777344
+      "parameter_count": 296352743424
     },
-    "display_name": "Qwen/Qwen2.5 Vl 72B Instruct",
+    "display_name": "Deepseek Ai/Deepseek V4 Flash 0731",
     "env_api_key_name": "NEBIUS_API_KEY",
     "is_vision": false,
     "list_price": {
@@ -28,16 +22,16 @@
       "price": "0",
       "type": "constant"
     },
-    "offering_name": "Qwen/Qwen2.5-VL-72B-Instruct",
+    "offering_name": "deepseek-ai/DeepSeek-V4-Flash-0731",
     "payout_price": {
       "description": "Free (BYOK)",
       "price": "0",
       "type": "constant"
     },
-    "pricing_note": "$0.13 / $0.4 per 1M input/output tokens",
+    "pricing_note": null,
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",
-    "supports_function_calling": true
+    "supports_function_calling": false
   }
 }
