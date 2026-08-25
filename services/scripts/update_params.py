@@ -93,27 +93,20 @@ class ModelSource:
                 details["litellm_provider"] = model_data["litellm_provider"]
 
         # Tool-call support per model.  Nebius's /v1/models doesn't expose
-        # this, so we trust LiteLLM's model registry — but with two
-        # corrections:
-        #
-        # 1. Prefer the ``nebius/<model_id>`` entry over arbitrary other
-        #    provider rows.  ``ModelDataLookup`` matches the first
-        #    ``*/<model_id>`` it finds in dict-iteration order, which can
-        #    return e.g. the deepinfra row when nebius hosts the same
-        #    model with different capabilities.
-        # 2. A small denylist for models LiteLLM marks as tool-capable
-        #    that Nebius nonetheless rejects with 400.  LiteLLM's per-
-        #    provider rows are sometimes optimistic; this list captures
-        #    upstream truth as we discover it.  Drop entries when Nebius
-        #    actually adds tool support.
+        # this, so we trust LiteLLM's model registry — preferring the
+        # ``nebius/<model_id>`` entry over arbitrary other provider rows
+        # (``ModelDataLookup`` matches the first ``*/<model_id>`` it finds in
+        # dict-iteration order, which can return e.g. the deepinfra row when
+        # nebius hosts the same model with different capabilities).  LiteLLM
+        # is sometimes optimistic; corrections live in the per-model
+        # ``<name>.override.json`` companions, merged at render time, so this
+        # script never needs to change for one.
         nebius_specific = (self.litellm_data or {}).get(
             f"nebius/{model_id}", model_data
         )
         supports_function_calling = bool(
             (nebius_specific or {}).get("supports_function_calling")
         )
-        if model_id in self._FC_DENYLIST:
-            supports_function_calling = False
 
         if "owned_by" in model_info:
             details["owned_by"] = model_info["owned_by"]
@@ -211,16 +204,6 @@ class ModelSource:
         r"(?:^|[-_/])(?:vision|llava|vlm|vl)(?:[-_/]|\d+|$)",
         re.IGNORECASE,
     )
-
-    # Models LiteLLM marks as tool-capable but Nebius's chat-completion
-    # endpoint rejects with 400 when ``tools`` is sent.  Empirically
-    # discovered — drop entries when Nebius adds upstream support.
-    _FC_DENYLIST = frozenset({
-        "meta-llama/Meta-Llama-3.1-8B-Instruct",
-        # LiteLLM marks it tool-capable, but Nebius serves it without
-        # --enable-auto-tool-choice / --tool-call-parser → 400 on tools.
-        "Qwen/Qwen2.5-VL-72B-Instruct",
-    })
 
     def _determine_service_type(self, model_id: str) -> str:
         """Map model id to a platform-recognised ``service_type``.
