@@ -217,6 +217,9 @@ class ModelSource:
     # discovered — drop entries when Nebius adds upstream support.
     _FC_DENYLIST = frozenset({
         "meta-llama/Meta-Llama-3.1-8B-Instruct",
+        # LiteLLM marks it tool-capable, but Nebius serves it without
+        # --enable-auto-tool-choice / --tool-call-parser → 400 on tools.
+        "Qwen/Qwen2.5-VL-72B-Instruct",
     })
 
     def _determine_service_type(self, model_id: str) -> str:

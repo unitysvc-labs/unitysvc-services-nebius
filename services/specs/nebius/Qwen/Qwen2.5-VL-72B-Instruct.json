@@ -38,6 +38,6 @@
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",
-    "supports_function_calling": true
+    "supports_function_calling": false
   }
 }
