@@ -1,5 +1,6 @@
 {
   "parameters": {
-    "supports_function_calling": false
+    "supports_function_calling": false,
+    "test_timeout": 120
   }
 }
