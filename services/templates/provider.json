@@ -4,6 +4,21 @@
   "homepage": "https://nebius.com/",
   "logo": "https://nebius.com/logo.svg",
   "name": "nebius",
+  "rate_limits": [
+    {
+      "description": "Self-imposed ceiling so platform test sweeps cannot saturate the account; not a published provider limit.",
+      "limit": 10,
+      "name": "nebius_concurrency",
+      "unit": "concurrent"
+    },
+    {
+      "description": "Self-imposed ceiling so platform test sweeps cannot saturate the account; not a published provider limit.",
+      "limit": 100,
+      "name": "nebius_rpm",
+      "unit": "requests",
+      "window": "minute"
+    }
+  ],
   "status": "ready",
   "terms_of_service": "https://docs.nebius.com/legal/studio/terms-of-use",
   "time_created": "2025-08-31T00:00:00Z"
