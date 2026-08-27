@@ -37,93 +37,51 @@
       "routing_key": {"model": "{{ offering_name }}"}
     }
   },
+  {#- Every document below is DERIVED from what this service is: its
+      capability and the request dialects it accepts (unitysvc/unitysvc#1899).
+      The catalog-wide shape lives in unitysvc-data's `llm_example_collection`
+      preset, so a new example flavour or a fixed preset reaches this repo on
+      the next release rather than through a PR here.
+
+      A collection covers ONE capability, so the embedding / vision / chat
+      dispatch stays. Two things the hand-written block repeated on every
+      document now ride the declaration:
+
+      * `timeout` — how long the runner may let a document run before killing
+        it (the backend's `resolve_test_timeout`; 30 s when absent).
+        Qwen2.5-VL-72B-Instruct needs 120 s, set per service via the
+        `test_timeout` param, and this is the only catalog that uses it.
+      * `vision` — a group feature flag, so the vision branch selects the
+        vision examples instead of naming all three by hand.
+
+      Requires unitysvc-data with the `timeout` knob (unitysvc-data#67). -#}
   "documents": {
-    "How to use this model": {
-      "$doc_preset": "llm_description"
+{%- if service_type == "embedding" %}
+    "$llm_example_collection": {
+      "capabilities": ["embed"],
+      "formats": ["openai"],
+      "upstream_dialect": "openai",
+      "sleep": 5,
+      "timeout": {{ test_timeout | default(30) }}
     }
-{#- Per-service-type dispatch.  The chat-completion presets (llm_*) only
-    apply to text LLMs; embeddings POST to /embeddings.  Vision-capable
-    LLMs (``is_vision``) stay on the chat-completion shape but get
-    image-aware code examples so the probe payload includes an image
-    content block.  Sending the wrong-shape probe upstream returns 4xx
-    and rejects the service.  Every EXECUTED doc (code examples +
-    connectivity) carries meta.sleep_after_test to space out upstream
-    probes; llm_description / llm_request_template are not executed. -#}
-{%- if service_type == "embedding" %},
-    "Python code example": {
-      "$doc_preset": {"name": "llm_code_example_embed_requests", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
-    },
-    "JavaScript code example": {
-      "$doc_preset": {"name": "llm_code_example_embed_javascript", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
-    },
-    "cURL code example": {
-      "$doc_preset": {"name": "llm_code_example_embed_shell", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
-    },
-    "Connectivity test": {
-      "$doc_preset": {"name": "llm_connectivity_embed", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
+{%- elif is_vision %}
+    "$llm_example_collection": {
+      "capabilities": ["chat"],
+      "formats": [{"formats": ["openai", "anthropic"], "vision": true,
+                   "tools": {{ (supports_function_calling | default(false)) | tojson }}}],
+      "upstream_dialect": "openai",
+      "sleep": 5,
+      "timeout": {{ test_timeout | default(30) }}
     }
-{#- No request-template preset for embeddings yet — the embed cURL
-    example already shows the canonical request body.  Embeddings speak
-    OpenAI only, so no Anthropic-dialect examples here. -#}
-{%- elif is_vision %},
-    "Python code example": {
-      "$doc_preset": {"name": "llm_code_example_vision_requests", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
-    },
-{%- if supports_function_calling %}
-    "Python function calling code example": {
-      "$doc_preset": {"name": "llm_code_example_fc_requests", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
-    },
-{%- endif %}
-    "JavaScript code example": {
-      "$doc_preset": {"name": "llm_code_example_vision_javascript", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
-    },
-    "cURL code example": {
-      "$doc_preset": {"name": "llm_code_example_vision_shell", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
-    },
-    {#- Anthropic-dialect examples (R9): the upstream speaks OpenAI, so
-        specs run-tests (local_testing) calls it in OpenAI form, while the
-        gateway path speaks Anthropic and exercises the llm_translator. #}
-    "Python code example (Anthropic-style input)": {
-      "$doc_preset": {"name": "llm_code_example_anthropic_to_openai_sdk", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
-    },
-    "cURL code example (Anthropic-style input)": {
-      "$doc_preset": {"name": "llm_code_example_anthropic_to_openai_shell", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
-    },
-    "Connectivity test": {
-      "$doc_preset": {"name": "llm_connectivity", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
-    },
-    "Default request body": {
-      "$doc_preset": "llm_request_template"
-    }
-{%- else %},
-    "Python code example": {
-      "$doc_preset": {"name": "llm_code_example_openai", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
-    },
-{%- if supports_function_calling %}
-    "Python function calling code example": {
-      "$doc_preset": {"name": "llm_code_example_fc_requests", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
-    },
-{%- endif %}
-    "JavaScript code example": {
-      "$doc_preset": {"name": "llm_code_example_javascript", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
-    },
-    "cURL code example": {
-      "$doc_preset": {"name": "llm_code_example_shell", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
-    },
-    {#- Anthropic-dialect examples (R9): the upstream speaks OpenAI, so
-        specs run-tests (local_testing) calls it in OpenAI form, while the
-        gateway path speaks Anthropic and exercises the llm_translator. #}
-    "Python code example (Anthropic-style input)": {
-      "$doc_preset": {"name": "llm_code_example_anthropic_to_openai_sdk", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
-    },
-    "cURL code example (Anthropic-style input)": {
-      "$doc_preset": {"name": "llm_code_example_anthropic_to_openai_shell", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
-    },
-    "Connectivity test": {
-      "$doc_preset": {"name": "llm_connectivity", "meta": {"sleep_after_test": 5, "timeout": {{ test_timeout | default(30) }}}}
-    },
-    "Default request body": {
-      "$doc_preset": "llm_request_template"
+{%- else %}
+    "$llm_example_collection": {
+      "capabilities": ["chat"],
+      "formats": ["openai", "anthropic"],
+      "upstream_dialect": "openai",
+      {#- Tool examples 400 on models LiteLLM does not mark tool-capable. -#}
+      "tools": {{ (supports_function_calling | default(false)) | tojson }},
+      "sleep": 5,
+      "timeout": {{ test_timeout | default(30) }}
     }
 {%- endif %}
   }
