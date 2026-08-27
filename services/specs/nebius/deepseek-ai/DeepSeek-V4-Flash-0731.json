@@ -4,23 +4,23 @@
     "capabilities": [
       "chat"
     ],
-    "description": "Moonshotai/Kimi K2.7 Code language model",
+    "description": "Deepseek Ai/Deepseek V4 Flash 0731 language model",
     "details": {
-      "context_length": 262144,
+      "context_length": 1048576,
       "litellm_provider": "together_ai",
-      "max_input_tokens": 262144,
-      "max_output_tokens": 262144,
-      "max_tokens": 262144,
+      "max_input_tokens": 1048576,
+      "max_output_tokens": 1048576,
+      "max_tokens": 1048576,
       "metadata_sources": {
-        "context_length": "openrouter",
+        "context_length": "litellm",
         "parameter_count": "huggingface_safetensors"
       },
       "mode": "chat",
       "object": "model",
       "owned_by": "system",
-      "parameter_count": 1014686023680
+      "parameter_count": 296352743424
     },
-    "display_name": "Moonshotai/Kimi K2.7 Code",
+    "display_name": "Deepseek Ai/Deepseek V4 Flash 0731",
     "env_api_key_name": "NEBIUS_API_KEY",
     "is_vision": false,
     "list_price": {
@@ -28,13 +28,13 @@
       "price": "0",
       "type": "constant"
     },
-    "offering_name": "moonshotai/Kimi-K2.7-Code",
+    "offering_name": "deepseek-ai/DeepSeek-V4-Flash-0731",
     "payout_price": {
       "description": "Free (BYOK)",
       "price": "0",
       "type": "constant"
     },
-    "pricing_note": "$0.95 / $4 per 1M input/output tokens",
+    "pricing_note": "$0.14 / $0.28 per 1M input/output tokens",
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",

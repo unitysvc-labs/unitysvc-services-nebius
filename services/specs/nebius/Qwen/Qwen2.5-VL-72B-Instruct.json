@@ -4,7 +4,7 @@
     "capabilities": [
       "chat"
     ],
-    "description": "Qwen/Qwen2.5 Vl 72B Instruct vision-language model",
+    "description": "Qwen/Qwen2.5 Vl 72B Instruct language model",
     "details": {
       "context_length": 128000,
       "litellm_provider": "nebius",
@@ -22,7 +22,7 @@
     },
     "display_name": "Qwen/Qwen2.5 Vl 72B Instruct",
     "env_api_key_name": "NEBIUS_API_KEY",
-    "is_vision": true,
+    "is_vision": false,
     "list_price": {
       "description": "Free (BYOK)",
       "price": "0",
@@ -38,6 +38,6 @@
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",
-    "supports_function_calling": false
+    "supports_function_calling": true
   }
 }
