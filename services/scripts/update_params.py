@@ -74,7 +74,7 @@ class ModelSource:
         """Build template variables for a model."""
         service_type = self._determine_service_type(model_id)
         capabilities = self._determine_capabilities(service_type, model_id)
-        is_vision = "vision" in capabilities
+        is_vision = "image-text-to-text" in capabilities
         display_name = model_id.replace("-", " ").replace("_", " ").title()
 
         # Build details from LiteLLM data and model info
@@ -211,8 +211,9 @@ class ModelSource:
         The schema enum tracks *transport shape* (chat-completion vs
         embeddings vs rerank vs image-gen vs …), not per-feature flags.
         Vision-language models POST to the same ``/chat/completions``
-        surface as text LLMs, so they stay ``llm`` here and pick up a
-        ``"vision"`` tag in :meth:`_determine_capabilities` instead.
+        surface as text LLMs, so they stay ``llm`` here and pick up the
+        ``image-text-to-text`` capability in :meth:`_determine_capabilities`
+        instead.
         """
         model_lower = model_id.lower()
         # Embeddings first — some embedding models also use "instruct" in
@@ -236,16 +237,26 @@ class ModelSource:
     }
 
     def _determine_capabilities(self, service_type: str, model_id: str) -> list[str]:
-        """The platform capability this offering provides.
+        """The platform capabilities this offering provides.
 
-        Exactly one entry: what the caller gets from a call.  ``vision`` is
-        deliberately NOT included — an image in the request qualifies a chat
-        call, it is not a separate thing the service does, so it is an
-        attribute rather than a capability.  It is not lost: ``is_vision``
-        rides in the params alongside this and is what the listing template
-        dispatches vision code examples on.
+        A vision-language model gets TWO: it holds an ordinary text
+        conversation (``chat``), and it also accepts an image alongside a
+        text instruction and answers about it (``image-text-to-text``).
+        The second has its own defined input and its own code examples, so
+        it is a capability in its own right rather than a flag on the
+        first — and declaring it is what makes the vision examples render.
+
+        This previously returned exactly one entry on the grounds that
+        vision merely qualifies a chat call.  The consequence was that
+        ``is_vision`` (computed from this list) could never be true, so the
+        listing's vision branch was unreachable and the one param file
+        still carrying ``"is_vision": true`` was stale data that the next
+        populate run would have silently flipped.
         """
-        return [self._SERVICE_TYPE_CAPABILITY.get(service_type, "chat")]
+        capability = self._SERVICE_TYPE_CAPABILITY.get(service_type, "chat")
+        if capability == "chat" and self._VL_PATTERN.search(model_id):
+            return ["chat", "image-text-to-text"]
+        return [capability]
 
     def _format_price(self, price: float) -> str:
         """Format price without trailing .0 for whole numbers."""
