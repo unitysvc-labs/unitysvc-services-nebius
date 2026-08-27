@@ -2,7 +2,8 @@
   "parameters": {
     "api_base_url": "https://api.tokenfactory.us-central1.nebius.com/v1",
     "capabilities": [
-      "chat"
+      "chat",
+      "image-text-to-text"
     ],
     "description": "Qwen/Qwen2.5 Vl 72B Instruct vision-language model",
     "details": {
