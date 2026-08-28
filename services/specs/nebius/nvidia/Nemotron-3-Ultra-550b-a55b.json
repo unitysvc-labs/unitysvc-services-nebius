@@ -6,7 +6,7 @@
     ],
     "description": "Nvidia/Nemotron 3 Ultra 550B A55B language model",
     "details": {
-      "context_length": 512288,
+      "context_length": 262144,
       "metadata_sources": {
         "context_length": "openrouter"
       },
