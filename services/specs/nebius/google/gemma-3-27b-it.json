@@ -6,7 +6,7 @@
     ],
     "description": "Google/Gemma 3 27B It language model",
     "details": {
-      "context_length": 262144,
+      "context_length": 131072,
       "litellm_provider": "deepinfra",
       "max_input_tokens": 131072,
       "max_output_tokens": 131072,
@@ -34,7 +34,7 @@
       "price": "0",
       "type": "constant"
     },
-    "pricing_note": "$0.09 / $0.16 per 1M input/output tokens",
+    "pricing_note": "$0.08 / $0.16 per 1M input/output tokens",
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",
