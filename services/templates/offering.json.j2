@@ -44,10 +44,22 @@
     writes this into every param file; the map here is the fallback for a param
     file that predates it. -#}
 {%- set _cap = {"llm": "chat", "embedding": "embed", "rerank": "rerank"}.get(service_type, "chat") %}
-  "capabilities": {{ capabilities | default([_cap]) | tojson }},
+{%- set _capabilities = capabilities | default([_cap]) %}
+  "capabilities": {{ _capabilities | tojson }},
   "status": "{{ status | default('ready') }}",
   "currency": "USD",
-  "tags": ["ai", "gateway", "byok"],
+{#- Tags are a CLOSED vocabulary (unitysvc docs/tags.yml, unitysvc#1962) and
+    ingest now REJECTS anything outside it.  The old ai / gateway / byok trio
+    only restated service_type, gateway_type and the enrollment channel — all
+    three are derived by the platform — so the whole list is gone.
+    `feature:func-call` is the one tag a seller may still declare.  It keys on
+    the same `supports_function_calling` signal the listing template uses to
+    decide whether to render tool examples, so a tagged model always ships a
+    tool example that actually works.  The chat guard keeps embeddings (and any
+    future non-chat capability) from ever claiming it. -#}
+{%- if "chat" in _capabilities and supports_function_calling | default(false) %}
+  "tags": ["feature:func-call"],
+{%- endif %}
 {#- Merge the dual-dialect formats into the provider's details (R8); the
     llm_translator below exposes the OpenAI upstream in both dialects.  The
     embeddings endpoint is OpenAI-only, so it declares just the OpenAI dialect
