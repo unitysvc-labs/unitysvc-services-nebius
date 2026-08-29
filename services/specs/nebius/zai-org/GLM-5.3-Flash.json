@@ -4,12 +4,13 @@
     "capabilities": [
       "chat"
     ],
-    "description": "Zai Org/Glm 5.1 language model",
+    "description": "Zai Org/Glm 5.3 Flash language model",
     "details": {
-      "context_length": 202752,
-      "litellm_provider": "deepinfra",
-      "max_input_tokens": 202752,
-      "max_tokens": 202752,
+      "context_length": 1048575,
+      "litellm_provider": "together_ai",
+      "max_input_tokens": 1048575,
+      "max_output_tokens": 1048575,
+      "max_tokens": 1048575,
       "metadata_sources": {
         "context_length": "litellm",
         "parameter_count": "huggingface_safetensors"
@@ -17,9 +18,9 @@
       "mode": "chat",
       "object": "model",
       "owned_by": "system",
-      "parameter_count": 753864119552
+      "parameter_count": 314396639232
     },
-    "display_name": "Zai Org/Glm 5.1",
+    "display_name": "Zai Org/Glm 5.3 Flash",
     "env_api_key_name": "NEBIUS_API_KEY",
     "is_vision": false,
     "list_price": {
@@ -27,13 +28,13 @@
       "price": "0",
       "type": "constant"
     },
-    "offering_name": "zai-org/GLM-5.1",
+    "offering_name": "zai-org/GLM-5.3-Flash",
     "payout_price": {
       "description": "Free (BYOK)",
       "price": "0",
       "type": "constant"
     },
-    "pricing_note": "$1.05 / $3.5 per 1M input/output tokens",
+    "pricing_note": "$0.15 / $0.5 per 1M input/output tokens",
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",
