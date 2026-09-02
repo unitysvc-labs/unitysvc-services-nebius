@@ -6,11 +6,11 @@
     ],
     "description": "Zai Org/Glm 5.3 Flash language model",
     "details": {
-      "context_length": 1048575,
-      "litellm_provider": "together_ai",
-      "max_input_tokens": 1048575,
-      "max_output_tokens": 1048575,
-      "max_tokens": 1048575,
+      "context_length": 1048576,
+      "litellm_provider": "friendliai",
+      "max_input_tokens": 1048576,
+      "max_output_tokens": 1048576,
+      "max_tokens": 1048576,
       "metadata_sources": {
         "context_length": "litellm",
         "parameter_count": "huggingface_safetensors"
