@@ -7,8 +7,9 @@
     "description": "Zai Org/Glm 5.1 language model",
     "details": {
       "context_length": 202752,
-      "litellm_provider": "deepinfra",
+      "litellm_provider": "nebius",
       "max_input_tokens": 202752,
+      "max_output_tokens": 202752,
       "max_tokens": 202752,
       "metadata_sources": {
         "context_length": "litellm",
@@ -33,7 +34,7 @@
       "price": "0",
       "type": "constant"
     },
-    "pricing_note": "$1.05 / $3.5 per 1M input/output tokens",
+    "pricing_note": "$1.4 / $4.4 per 1M input/output tokens",
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",
