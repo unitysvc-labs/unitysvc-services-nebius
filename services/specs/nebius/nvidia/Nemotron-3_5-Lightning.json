@@ -6,7 +6,15 @@
     ],
     "description": "Nvidia/Nemotron 3 5 Lightning language model",
     "details": {
-      "context_length": null,
+      "context_length": 1048576,
+      "litellm_provider": "nebius",
+      "max_input_tokens": 1048576,
+      "max_output_tokens": 1048576,
+      "max_tokens": 1048576,
+      "metadata_sources": {
+        "context_length": "litellm"
+      },
+      "mode": "chat",
       "object": "model",
       "owned_by": "system",
       "parameter_count": null
@@ -25,10 +33,10 @@
       "price": "0",
       "type": "constant"
     },
-    "pricing_note": null,
+    "pricing_note": "$0.06 / $0.24 per 1M input/output tokens",
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",
-    "supports_function_calling": false
+    "supports_function_calling": true
   }
 }

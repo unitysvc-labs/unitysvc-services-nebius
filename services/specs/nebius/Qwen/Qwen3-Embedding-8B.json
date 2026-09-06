@@ -6,10 +6,15 @@
     ],
     "description": "Qwen/Qwen3 Embedding 8B embedding model",
     "details": {
-      "context_length": null,
+      "context_length": 40960,
+      "litellm_provider": "nebius",
+      "max_input_tokens": 40960,
+      "max_tokens": 40960,
       "metadata_sources": {
+        "context_length": "litellm",
         "parameter_count": "huggingface_safetensors"
       },
+      "mode": "embedding",
       "object": "model",
       "owned_by": "system",
       "parameter_count": 7567295488
@@ -28,7 +33,7 @@
       "price": "0",
       "type": "constant"
     },
-    "pricing_note": null,
+    "pricing_note": "$0.01 / $0 per 1M input/output tokens",
     "provider_display_name": "Nebius",
     "service_type": "embedding",
     "status": "ready",

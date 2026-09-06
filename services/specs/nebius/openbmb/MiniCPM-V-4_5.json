@@ -6,10 +6,16 @@
     ],
     "description": "Openbmb/Minicpm V 4 5 language model",
     "details": {
-      "context_length": null,
+      "context_length": 32000,
+      "litellm_provider": "nebius",
+      "max_input_tokens": 32000,
+      "max_output_tokens": 32000,
+      "max_tokens": 32000,
       "metadata_sources": {
+        "context_length": "litellm",
         "parameter_count": "huggingface_safetensors"
       },
+      "mode": "chat",
       "object": "model",
       "owned_by": "system",
       "parameter_count": 8695895280
@@ -28,7 +34,7 @@
       "price": "0",
       "type": "constant"
     },
-    "pricing_note": null,
+    "pricing_note": "$0.658 / $1.11 per 1M input/output tokens",
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",
