@@ -7,10 +7,15 @@
     "description": "Nousresearch/Hermes 4 405B language model",
     "details": {
       "context_length": 131072,
+      "litellm_provider": "nebius",
+      "max_input_tokens": 131072,
+      "max_output_tokens": 131072,
+      "max_tokens": 131072,
       "metadata_sources": {
         "context_length": "openrouter",
         "parameter_count": "huggingface_safetensors"
       },
+      "mode": "chat",
       "object": "model",
       "owned_by": "system",
       "parameter_count": 405853388800
@@ -29,10 +34,10 @@
       "price": "0",
       "type": "constant"
     },
-    "pricing_note": null,
+    "pricing_note": "$1 / $3 per 1M input/output tokens",
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",
-    "supports_function_calling": false
+    "supports_function_calling": true
   }
 }

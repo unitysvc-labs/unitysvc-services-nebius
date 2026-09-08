@@ -32,7 +32,7 @@
     "pricing_note": null,
     "provider_display_name": "Nebius",
     "service_type": "llm",
-    "status": "ready",
+    "status": "deprecated",
     "supports_function_calling": false
   }
 }
