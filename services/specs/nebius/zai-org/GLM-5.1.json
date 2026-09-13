@@ -7,7 +7,7 @@
     "description": "Zai Org/Glm 5.1 language model",
     "details": {
       "context_length": 202752,
-      "litellm_provider": "nebius",
+      "litellm_provider": "friendliai",
       "max_input_tokens": 202752,
       "max_output_tokens": 202752,
       "max_tokens": 202752,
