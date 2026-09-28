@@ -6,11 +6,11 @@
     ],
     "description": "Deepseek Ai/Deepseek V4 Flash 0731 language model",
     "details": {
-      "context_length": 1024000,
-      "litellm_provider": "nebius",
-      "max_input_tokens": 1024000,
-      "max_output_tokens": 1024000,
-      "max_tokens": 1024000,
+      "context_length": 1048576,
+      "litellm_provider": "sail",
+      "max_input_tokens": 1048576,
+      "max_output_tokens": 1048576,
+      "max_tokens": 1048576,
       "metadata_sources": {
         "context_length": "litellm",
         "parameter_count": "huggingface_safetensors"
@@ -34,7 +34,7 @@
       "price": "0",
       "type": "constant"
     },
-    "pricing_note": "$0.14 / $0.28 per 1M input/output tokens",
+    "pricing_note": "$0.09 / $0.18 per 1M input/output tokens",
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",
