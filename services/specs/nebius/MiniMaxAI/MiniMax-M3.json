@@ -6,11 +6,10 @@
     ],
     "description": "Minimaxai/Minimax M3 language model",
     "details": {
-      "context_length": 1048576,
-      "litellm_provider": "nebius",
-      "max_input_tokens": 1048576,
-      "max_output_tokens": 1048576,
-      "max_tokens": 1048576,
+      "context_length": 524288,
+      "litellm_provider": "inferenceapis",
+      "max_input_tokens": 524288,
+      "max_tokens": 524288,
       "metadata_sources": {
         "context_length": "litellm",
         "parameter_count": "huggingface_safetensors"
@@ -34,7 +33,7 @@
       "price": "0",
       "type": "constant"
     },
-    "pricing_note": "$0.3 / $1.2 per 1M input/output tokens",
+    "pricing_note": "$0.39 / $1.56 per 1M input/output tokens",
     "provider_display_name": "Nebius",
     "service_type": "llm",
     "status": "ready",
