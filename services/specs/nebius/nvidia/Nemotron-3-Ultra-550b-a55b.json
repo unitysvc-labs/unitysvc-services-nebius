@@ -10,7 +10,6 @@
       "litellm_provider": "nebius",
       "max_input_tokens": 1048576,
       "max_output_tokens": 1048576,
-      "max_tokens": 1048576,
       "metadata_sources": {
         "context_length": "openrouter"
       },

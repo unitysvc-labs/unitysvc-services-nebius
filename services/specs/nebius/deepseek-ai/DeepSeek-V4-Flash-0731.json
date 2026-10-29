@@ -10,7 +10,6 @@
       "litellm_provider": "sail",
       "max_input_tokens": 1048576,
       "max_output_tokens": 1048576,
-      "max_tokens": 1048576,
       "metadata_sources": {
         "context_length": "litellm",
         "parameter_count": "huggingface_safetensors"

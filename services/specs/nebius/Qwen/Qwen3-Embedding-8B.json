@@ -9,7 +9,6 @@
       "context_length": 40960,
       "litellm_provider": "nebius",
       "max_input_tokens": 40960,
-      "max_tokens": 40960,
       "metadata_sources": {
         "context_length": "litellm",
         "parameter_count": "huggingface_safetensors"
