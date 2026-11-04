@@ -10,7 +10,6 @@
       "litellm_provider": "friendliai",
       "max_input_tokens": 202752,
       "max_output_tokens": 202752,
-      "max_tokens": 202752,
       "metadata_sources": {
         "context_length": "litellm",
         "parameter_count": "huggingface_safetensors"

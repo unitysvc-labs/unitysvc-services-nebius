@@ -9,7 +9,7 @@
       "context_length": 524288,
       "litellm_provider": "inferenceapis",
       "max_input_tokens": 524288,
-      "max_tokens": 524288,
+      "max_output_tokens": 524288,
       "metadata_sources": {
         "context_length": "litellm",
         "parameter_count": "huggingface_safetensors"
