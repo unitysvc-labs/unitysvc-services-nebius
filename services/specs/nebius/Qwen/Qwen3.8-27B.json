@@ -6,7 +6,7 @@
     ],
     "description": "Qwen/Qwen3.8 27B language model",
     "details": {
-      "context_length": 1024000,
+      "context_length": 1048575,
       "litellm_provider": "nebius",
       "max_input_tokens": 262144,
       "metadata_sources": {
